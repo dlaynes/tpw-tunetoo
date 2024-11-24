@@ -1,0 +1,348 @@
+/* Estilos Generales */
+body {
+  font-family: 'Arial', sans-serif; /* Fuente general del sitio */
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Color de fondo del sitio */
+  color: #333; /* Color del texto */
+}
+
+/* Estilos del Encabezado */
+header nav {
+  display: flex;
+  justify-content: space-between; /* Distribuye el contenido del nav */
+  align-items: center;
+  padding: 0 20px;
+}
+
+header .logo h1 {
+  margin: 0;
+  font-size: 24px; /* Tamaño de la fuente del logo */
+}
+
+header .logo p {
+  margin: 0;
+  font-size: 14px; /* Tamaño de la fuente del subtítulo del logo */
+}
+
+header .menu {
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+header .menu li {
+  margin: 0 10px; /* Espaciado entre los elementos del menú */
+}
+
+header .menu li a {
+  color: #080000; /* Color del texto del menú */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  font-size: 20px; /* Tamaño de la fuente del menú */
+  font-weight: bold; /* Hace la letra más gruesa */
+  position: relative;
+}
+
+header .menu li a.active,
+header .menu li a:active,
+header .menu li a:focus {
+  color: #ff0000; /* Cambia el color del texto al hacer clic y mantener el foco */
+}
+
+header .menu li a span {
+  display: block;
+  font-size: 12px; /* Tamaño de la fuente del subtítulo del menú */
+  color: #090000; /* Color del subtítulo del menú */
+}
+
+header .acciones {
+  display: flex;
+  align-items: center;
+}
+
+header .acciones a {
+  color: #080808; /* Color del texto de las acciones */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+header .acciones .carrito {
+  position: relative;
+}
+
+header .acciones .carrito .contador {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: rgb(15, 233, 113); /* Color de fondo del contador */
+  color: #fbf9f9; /* Color del texto del contador */
+  border-radius: 50%; /* Hace el contador redondo */
+  padding: 2px 6px; /* Espaciado interno del contador */
+  font-size: 12px; /* Tamaño de la fuente del contador */
+}
+
+
+main {
+  padding: 20px; /* Espaciado interno del contenido principal */
+}
+
+footer {
+  background-color: #080606; /* Color de fondo del pie de página */
+  color: #fff; /* Color del texto del pie de página */
+  text-align: center; /* Centra el texto del pie de página */
+  padding: 10px 0; /* Espaciado interno del pie de página */
+  position: relative; /* Posiciona el pie de página de forma relativa */
+  width: 100%; /* Hace que el pie de página ocupe todo el ancho */
+  bottom: 0; /* Posiciona el pie de página en la parte inferior */
+  margin-top: 20px; /* Añade un margen superior para separar del contenido */
+}
+
+/* Estilos de la Galería */
+.gallery {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  gap: 10px; /* Espaciado entre las imágenes */
+  justify-content: center; /* Centra las imágenes */
+}
+
+.gallery img {
+  width: 200px; /* Ancho de las imágenes */
+  height: 200px; /* Altura de las imágenes */
+  object-fit: cover; /* Ajusta las imágenes para cubrir el contenedor */
+  transition: transform 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+.gallery img:hover {
+  transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el mouse */
+}
+
+/* Estilos del Organigrama */
+.org-chart {
+  display: flex;
+  flex-direction: column; /* Organiza los elementos en una columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.org-chart .level {
+  display: flex; /* Organiza los elementos en una fila */
+  justify-content: center; /* Centra los elementos */
+  margin: 20px 0; /* Espaciado vertical entre los niveles */
+}
+
+.org-chart .member {
+  background-color: #fff; /* Color de fondo de los miembros */
+  border: 1px solid #ccc; /* Borde de los miembros */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno de los miembros */
+  margin: 0 10px; /* Espaciado horizontal entre los miembros */
+  text-align: center; /* Centra el texto de los miembros */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para los miembros */
+}
+
+/* Estilos de la Sección de Productos */
+.productos, .personalizacion {
+  text-align: center; /* Centra el texto */
+}
+
+.productos h2, .personalizacion h2 {
+  font-size: 24px; /* Tamaño de la fuente de los títulos */
+  margin-bottom: 10px; /* Espaciado inferior de los títulos */
+}
+
+.productos p, .personalizacion p {
+  font-size: 16px; /* Tamaño de la fuente de los párrafos */
+  margin-bottom: 20px; /* Espaciado inferior de los párrafos */
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  justify-content: center; /* Centra los elementos */
+  gap: 20px; /* Espaciado entre los productos */
+}
+
+.producto {
+  background-color: #fff; /* Color de fondo de los productos */
+  border: 1px solid #ccc; /* Borde de los productos */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno de los productos */
+  text-align: center; /* Centra el texto de los productos */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para los productos */
+  width: 200px; /* Ancho de los productos */
+}
+
+.producto img {
+  width: 100%; /* Ancho de las imágenes de los productos */
+  height: auto; /* Altura automática para mantener la proporción */
+  border-bottom: 1px solid #ccc; /* Borde inferior de las imágenes */
+  margin-bottom: 10px; /* Espaciado inferior de las imágenes */
+}
+
+.producto h3 {
+  font-size: 18px; /* Tamaño de la fuente de los títulos de los productos */
+  margin: 10px 0; /* Espaciado vertical de los títulos de los productos */
+}
+
+.producto p {
+  font-size: 14px; /* Tamaño de la fuente de los párrafos de los productos */
+  color: #666; /* Color del texto de los párrafos de los productos */
+}
+
+.producto button {
+  background-color: #333; /* Color de fondo de los botones */
+  color: #fff; /* Color del texto de los botones */
+  border: none; /* Elimina el borde de los botones */
+  padding: 10px; /* Espaciado interno de los botones */
+  border-radius: 5px; /* Bordes redondeados de los botones */
+  cursor: pointer; /* Cambia el cursor al pasar sobre los botones */
+  transition: background-color 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+.producto button:hover {
+  background-color: #555; /* Color de fondo de los botones al pasar el mouse */
+}
+
+/* Estilos Existentes */
+.carrito {
+  background: url('cart-icon.png') no-repeat center; /* Imagen de fondo del carrito */
+  width: 24px; /* Ancho del carrito */
+  height: 24px; /* Altura del carrito */
+  display: inline-block;
+}
+
+header {
+  background: url('images/header.jpg') no-repeat center center; /* Imagen de fondo del encabezado */
+  background-size: contain; /* Ajusta la imagen de fondo para que se contenga dentro del contenedor */
+  height: 500px; /* Altura del encabezado */
+  position: relative;
+  margin-top: 20px; /* Margen superior del encabezado */
+  z-index: 1; /* Nivel de apilamiento del encabezado */
+}
+/* Nosotros Section Styles */
+.nosotros {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.nosotros h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.nosotros p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+/* Estilos para la ventana emergente */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 40%;
+  max-width: 500px;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.close {
+  color: #333;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.modal-content input {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #0ee142;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(-50px);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
