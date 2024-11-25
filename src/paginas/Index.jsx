@@ -5,27 +5,27 @@ export const Index = () => {
 
       <div className="galeria">
         <div className="producto">
-          <a href="images/polos.avif" target="_blank">
-            <img src="images/polos.avif" alt="Camiseta personalizada" />
+          <a href="/images/polos.avif" target="_blank">
+            <img src="/images/polos.avif" alt="Camiseta personalizada" />
             <button>Camisetas personalizadas</button>
           </a>
         </div>
         <div className="producto">
-          <a href="images/gorra.avif" target="_blank">
-            <img src="images/gorra.avif" alt="Gorra personalizada" />
+          <a href="/images/gorra.avif" target="_blank">
+            <img src="/images/gorra.avif" alt="Gorra personalizada" />
             <button>Gorras personalizadas</button>
           </a>
         </div>
 
         <div className="producto">
-          <a href="images/chullo.avif" target="_blank">
-            <img src="images/chullo.avif" alt="Almohada personalizada" />
+          <a href="/images/chullo.avif" target="_blank">
+            <img src="/images/chullo.avif" alt="Almohada personalizada" />
             <button>Chullos personalizadas</button>
           </a>
         </div>
         <div className="producto">
-          <a href="images/baby.avif" target="_blank">
-            <img src="images/baby.avif" alt="Body para bebé personalizado" />
+          <a href="/images/baby.avif" target="_blank">
+            <img src="/images/baby.avif" alt="Body para bebé personalizado" />
             <button>Bodys personalizados</button>
           </a>
         </div>

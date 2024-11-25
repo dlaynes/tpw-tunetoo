@@ -8,7 +8,7 @@ export const HoverImage = (props) => {
         <img
             onMouseEnter={() => setImage(props.hover)}
             onMouseLeave={() => setImage(props.src)}
-            src={image} alt={props.alt} />
+            src={"/"+image} alt={props.alt} />
     )
 };
 

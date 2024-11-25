@@ -205,7 +205,7 @@ footer {
 /* Estilos Existentes */
 
 header {
-  background: url('/images/header.jpg') no-repeat center center; /* Imagen de fondo del encabezado */
+  background: url('/images/header.jpg') no-repeat center 50px; /* Imagen de fondo del encabezado */
   background-size: contain; /* Ajusta la imagen de fondo para que se contenga dentro del contenedor */
   height: 500px; /* Altura del encabezado */
   position: relative;
