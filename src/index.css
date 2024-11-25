@@ -203,15 +203,9 @@ footer {
 }
 
 /* Estilos Existentes */
-.carrito {
-  background: url('cart-icon.png') no-repeat center; /* Imagen de fondo del carrito */
-  width: 24px; /* Ancho del carrito */
-  height: 24px; /* Altura del carrito */
-  display: inline-block;
-}
 
 header {
-  background: url('images/header.jpg') no-repeat center center; /* Imagen de fondo del encabezado */
+  background: url('/images/header.jpg') no-repeat center center; /* Imagen de fondo del encabezado */
   background-size: contain; /* Ajusta la imagen de fondo para que se contenga dentro del contenedor */
   height: 500px; /* Altura del encabezado */
   position: relative;
