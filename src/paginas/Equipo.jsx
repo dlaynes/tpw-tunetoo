@@ -1,3 +1,6 @@
+/**
+ * El componente Equipo representa el contenido principal de la página EQUIPO
+ */
 export const Equipo = () => {
     return (
       <section className="org-chart">

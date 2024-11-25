@@ -8,6 +8,10 @@ import { Artshop } from "./paginas/Artshop";
 
 import { Body } from "./components/Body";
 
+/**
+ * El componente App sirve para navegar entre las páginas del proyecto
+ * Para el efecto, se definen rutas de navegación, y cada ruta se asocia a un componente respectivo
+ */
 function App() {
   return (
     <BrowserRouter>

@@ -13,11 +13,17 @@ const gallery = [
   {src: 'images/10.png', hover: 'images/1.png', description: 'Imagen 10'},
 ];
 
+/**
+ * El componente Artshop representa el contenido principal de la página ART SHOP
+ * Usando un array de datos (gallery), crea las imágenes con efectos especiales usando cada uno de los elementos del array
+ *
+ * @param {*} props
+ * @returns
+ */
 export const Artshop = () => {
   return (
     <section className="gallery">
       {gallery.map( (img, i) => <HoverImage key={"hover-image-"+i} src={img.src} alt={img.description} hover={img.hover} />)}
     </section>
-  )
+  );
 };
-

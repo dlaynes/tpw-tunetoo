@@ -1,6 +1,14 @@
 import PropTypes from 'prop-types';
 import { NavLink } from "react-router";
 
+/**
+ * El componente Cabecera sirve para mostrar el menú de navegación y la imagen banner de la página web
+ * Parámetros externos (props)
+ * props.cambiarModal : funcion llamada cada vez que hacemos clic en el botón iniciar sesión, sirve para abrir el modal de Login
+ *
+ * @param {*} props
+ * @returns
+ */
 export const Cabecera = (props) => {
 
   const abrirModal = () => {

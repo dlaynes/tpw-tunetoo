@@ -1,3 +1,6 @@
+/**
+ * El componente Index representa el contenido principal de la página de INICIO
+ */
 export const Index = () => {
   return (
     <section className="productos">
