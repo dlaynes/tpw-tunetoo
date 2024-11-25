@@ -5,7 +5,7 @@ import App from './App.jsx'
 
 /**
  * El archivo main.jsx sirve para crear el proyecto React, en modo javascript estricto.
- * Al final, creamos el componente App, que se encarga de mostrar nuestro proyecto
+ * Al final, ncluimos el componente App, el componente raiz del proyecto
  */
 createRoot(document.getElementById('root')).render(
   <StrictMode>

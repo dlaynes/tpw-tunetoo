@@ -1,3 +1,6 @@
+/**
+ * El componente PiePagina sirve para mostrar los datos que se vayan a incluir en el footer
+ */
 export const PiePagina = () => {
   return (
     <footer>
