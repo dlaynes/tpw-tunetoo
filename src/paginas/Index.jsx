@@ -16,7 +16,6 @@ export const Index = () => {
             <button>Gorras personalizadas</button>
           </a>
         </div>
-
         <div className="producto">
           <a href="/images/chullo.avif" target="_blank">
             <img src="/images/chullo.avif" alt="Almohada personalizada" />
