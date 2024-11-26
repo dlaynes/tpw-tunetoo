@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { NavLink } from "react-router";
 
+import { useLocation } from 'react-router-dom'
+
 /**
  * El componente Cabecera sirve para mostrar el menú de navegación y la imagen banner de la página web
  * Parámetros externos (props)
@@ -11,12 +13,14 @@ import { NavLink } from "react-router";
  */
 export const Cabecera = (props) => {
 
+  let location = useLocation();
+
   const abrirModal = () => {
     props.cambiarModal(true);
   };
 
   return (
-    <header>
+    <header className={"cabecera-" + (location.pathname.indexOf('editar') === -1 ? "regular" : "diseno")}>
       <nav>
         <div className="logo">
           <h1>Tunetoo</h1>

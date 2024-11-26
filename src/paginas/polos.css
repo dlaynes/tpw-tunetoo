@@ -1,0 +1,88 @@
+.cabecera-diseno {
+  background: none;
+  height: 75px;
+  border-bottom: 1px solid lightgray;
+}
+
+.polos {
+  display: flex;
+  flex-direction: row;
+  margin: 100px auto;
+  width: 1024px;
+}
+
+.capas-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.capas-inner {
+  display: flex;
+  justify-content: center;
+  width: 542px;
+  height: 620px;
+  background: center center no-repeat url('/images/disenador/t-shirt.png');
+  scale: 1;
+}
+.capas-limits {
+  margin-top: 80px;
+  width: 320px;
+  height: 480px;
+}
+
+.capas-aside {
+  width: 300px;
+}
+
+.opciones-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.opciones-container .accion {
+  display: inline-flex;
+  width: 80px;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.opciones-container .accion button {
+  background-color: none;
+  border: 0 none;
+}
+.opciones-container .accion button img {
+  width: 100%;
+  height: auto;
+}
+
+.opciones-container .accion span {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.capas-ordenables .sortable-container {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+.capas-ordenables .sortable-item {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 6px;
+  list-style: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.capas-ordenables .sortable-item img {
+  height: 15px;
+  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+}

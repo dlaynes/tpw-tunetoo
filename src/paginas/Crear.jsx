@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 /**
  * El componente Crear representa el contenido principal de la página CREAR
  */
@@ -27,6 +29,8 @@ export const Crear = () => {
           <p>Personaliza bodys para bebé con nombres, fechas de nacimiento, o divertidos diseños que harán sonreír a todos.</p>
         </div>
       </div>
+      <br />
+      <Link to='/editar'>Crear mi propio diseño</Link>
     </section>
   )
 };

@@ -7,24 +7,33 @@ import { Nosotros } from "./paginas/Nosotros";
 import { Artshop } from "./paginas/Artshop";
 
 import { Body } from "./components/Body";
+import { PolosProvider } from "./state/polos/PolosProvider";
+import { EditarPoloProvider } from "./state/editar-polo/EditarPoloProvider";
+import { Polos } from "./paginas/Polos";
 
 /**
  * El componente App sirve para navegar entre las páginas del proyecto
- * Para el efecto, se definen rutas de navegación, y cada ruta se asocia a un componente respectivo
+ * Para el efecto, se definen rutas de navegación, y cada ruta se asocia a un componente respectivo.
+ * Asimismo, se encarga de poner a disposición las variables y funciones globales disponibles en los proveedores de contexto (Providers)
  */
 function App() {
   return (
     <BrowserRouter>
-      <Body>
-          <Routes>
-            <Route index element={<Index />} />
-            <Route path="/artshop" element={<Artshop />} />
-            <Route path="/crear" element={<Crear />} />
-            <Route path="/editar/:poloId" element={<Crear />} />
-            <Route path="/equipo" element={<Equipo />} />
-            <Route path="/nosotros" element={<Nosotros />} />
-          </Routes>
-      </Body>
+      <PolosProvider>
+        <EditarPoloProvider>
+          <Body>
+            <Routes>
+              <Route index element={<Index />} />
+              <Route path="/artshop" element={<Artshop />} />
+              <Route path="/crear" element={<Crear />} />
+              <Route path="/editar" element={<Polos />} />
+              <Route path="/editar/:poloId" element={<Polos />} />
+              <Route path="/equipo" element={<Equipo />} />
+              <Route path="/nosotros" element={<Nosotros />} />
+            </Routes>
+          </Body>
+        </EditarPoloProvider>
+      </PolosProvider>
     </BrowserRouter>
   )
 }
