@@ -15,18 +15,13 @@ import { TIPO_CAPA } from "./constantes";
 export const EditarPoloProvider = ({ children }) => {
   // Polo sobre el cual se van a modificar las capas
   const [polo, cambiarPolo] = useState(null);
-  // Capas de diseño del polo actual
+  // Capas del diseño del polo actual
   const [capas, cambiarCapas] = useState([
     crearCapa({
       tipo: TIPO_CAPA.texto,
       texto: 'Nueva capa',
       seleccionada: true
-    }, 0),
-    crearCapa({
-      tipo: TIPO_CAPA.texto,
-      texto: 'Nueva capa 2',
-      seleccionada: false
-    }, 1)
+    }, 0)
   ]);
 
   const agregarCapa = (capa) => {
@@ -66,7 +61,7 @@ export const EditarPoloProvider = ({ children }) => {
   };
 
   // Esta variable facilita el acceso a la capa seleccionada
-  const capaActual = capas?.filter((it) => it?.seleccionada === true);
+  const capaActual = capas?.find((it) => it?.seleccionada === true);
 
   return (
     <EditarPoloContext.Provider

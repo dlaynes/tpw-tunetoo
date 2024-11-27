@@ -5,6 +5,7 @@ export const TIPO_CAPA = {
   galeria: 3
 };
 
+/** Plantilla base para la creación de capas */
 export const CAPA_BASE = {
   tipo: TIPO_CAPA.texto,
   seleccionada: false,
@@ -15,10 +16,14 @@ export const CAPA_BASE = {
   height: 100,
   texto: "",
   url: "",
-  color: "",
-  rotationDeg: 0
+  color: "#FFFFFF",
+  rotationDeg: 0,
+  fontFamily: "",
+  fontSize: 14,
+  backgroundColor: "transparent"
 };
 
+/** Fotos preseleccionadas para los usuarios */
 export const GALERIA = [
   {nombre: "General", carpeta: "general", fotos: []}
 ];

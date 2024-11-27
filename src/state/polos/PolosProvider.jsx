@@ -13,8 +13,7 @@ export const PolosProvider = ({ children }) => {
 
   const agregarPolo = (polo) => {
 
-
-    // Creamos un nuevo objeto array, que incluye el nuevo elemento polo
+    // Creamos un nuevo objeto array, que incluye el nuevo elemento polo a agregar a nuestro listado
     // 1) No usamos el array anterior polos que existe en memoria, porque si no, no va a funcionar la "reactividad"
     // y no se va a producir un cambio en la interfaz
     // 2) Usamos la versión de actualización de estado de useState() en la que se pasa una función callback,

@@ -1,6 +1,13 @@
 import { useContext } from "react";
 import { EditarPoloContext } from "../../state/editar-polo/EditarPoloContext";
 
+/**
+ * El componente CapaActual representa el panel desde el cual tenemos acceso a la capa seleccionada por el usuario
+ * Nos permite cambiar el título, color de fondo y otras características.
+ *
+ * @returns
+ */
+
 export const CapaActual = () => {
 
   const { capaActual } = useContext(EditarPoloContext);

@@ -17,6 +17,15 @@ import {
 import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext";
 import { SortableItem } from './SortableItem';
 
+/**
+ * El componente Listado, tiene como propósito mostrar la lista de capas en la barra lateral.
+ * Obtiene el listado de capas desde el contexto (módulo de estado global) respectivo
+ *
+ * Mediante la librería DND, ordenamos los elementos de la lista de capas, con el propósito
+ * de definir cual capa va en la parte superior en nuestro diseño
+ *
+ * @returns
+ */
 export const Listado = () => {
   const { capas, cambiarCapas } = useContext(EditarPoloContext);
   const sensors = useSensors(

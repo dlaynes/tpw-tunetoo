@@ -3,6 +3,11 @@ import { v4 as uuidv4 } from "uuid";
 
 import { CAPA_BASE } from "./constantes";
 
+/**
+ * Generamos un color hexadecimal RGB aleatorio
+ *
+ * @returns string
+ */
 export function colorAleatorio(){
   const banco = "ABCDEF0123456789";
   let aleatoria = "#";
@@ -12,6 +17,13 @@ export function colorAleatorio(){
   return aleatoria;
 }
 
+/**
+ * Función que inicializa una capa nueva, usando los datos provistos
+ *
+ * @param {*} capa
+ * @param {number} desplazamiento Representa la posición actual
+ * @returns
+ */
 export function crearCapa(capa, desplazamiento) {
   return Object.assign({}, CAPA_BASE, {
     ...capa,

@@ -5,6 +5,18 @@ import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext"
 
 // import { TIPO_CAPA } from "../../../state/editar-polo/constantes";
 
+/**
+ * El componente Capa se encarga de mostrar una capa en el editor de polos.
+ * Le da presentación visual al componente, y muestra las imágenes y textos respectivos.
+ * Permite realizar operaciones de rotación, redimensionamiento y cambio de posición mediante la librería ResizableBox
+ *
+ * props.capa Capa a ser dibujada
+ * props.pos Posición actual de la capa en el array de capas
+ *
+ * @param {*} param0
+ * @returns
+ */
+
 export const Capa = ({capa, pos}) => {
 
   const { actualizarCapa } = useContext(EditarPoloContext);
@@ -28,7 +40,6 @@ export const Capa = ({capa, pos}) => {
   };
 
   const onRotateHandler = (e) => {
-    console.log("Rotation", e.style.rotationDeg);
     actualizarCapa({
       id: capa.id,
       rotationDeg: e.style.rotationDeg

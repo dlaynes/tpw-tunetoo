@@ -12,7 +12,9 @@ import { Accion } from "../components/editar/Accion";
 import "./polos.css";
 
 /**
- * El componente Polos representa el contenido principal de la página de creación de un polo
+ * El componente Polos representa el contenido principal de la página de Creación de un polo
+ * Su función principal es crear los subcomponentes del diseñador de polos, y mostrar o esconder los modales de creación de capas
+ *
  */
 export const Polos = () => {
 
