@@ -21,7 +21,12 @@ export const EditarPoloProvider = ({ children }) => {
       tipo: TIPO_CAPA.texto,
       texto: 'Nueva capa',
       seleccionada: true
-    }, 0)
+    }, 0),
+    crearCapa({
+      tipo: TIPO_CAPA.texto,
+      texto: 'Nueva capa 2',
+      seleccionada: false
+    }, 1)
   ]);
 
   const agregarCapa = (capa) => {

@@ -29,7 +29,13 @@
   margin-top: 80px;
   width: 320px;
   height: 480px;
+  position: relative;
 }
+
+.capas-limits .shadow {
+  position: absolute;
+}
+
 
 .capas-aside {
   width: 300px;

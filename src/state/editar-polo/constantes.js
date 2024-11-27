@@ -11,11 +11,12 @@ export const CAPA_BASE = {
   zIndex: 1,
   top: 50,
   left: 50,
-  width: 50,
-  height: 50,
+  width: 100,
+  height: 100,
   texto: "",
   url: "",
   color: "",
+  rotationDeg: 0
 };
 
 export const GALERIA = [
