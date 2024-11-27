@@ -1,4 +1,4 @@
-import {  useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { CapaActual } from "../components/editar/CapaActual";
 import { Capas } from "../components/editar/Capas";
@@ -8,10 +8,6 @@ import { ModalLayer } from "../components/editar/modales/ModalLayer";
 import { ModalMisFotos } from "../components/editar/modales/ModalMisFotos";
 import { Opciones } from "../components/editar/Opciones";
 import { Accion } from "../components/editar/Accion";
-import { EditarPoloContext } from '../state/editar-polo/EditarPoloContext';
-
-import { TIPO_CAPA } from '../state/editar-polo/constantes';
-import { crearCapa } from '../state/editar-polo/utils';
 
 import "./polos.css";
 
@@ -23,19 +19,6 @@ export const Polos = () => {
   const [mostrarGaleria, setMostrarGaleria] = useState(false);
   const [mostrarNuevaCapa, setMostrarNuevaCapa] = useState(false);
   const [mostrarMisFotos, setMostrarMisFotos] = useState(false);
-
-  const { capas, agregarCapa } = useContext(EditarPoloContext);
-
-  useEffect(() => {
-    if(!capas.length){
-      let capa = crearCapa({
-        tipo: TIPO_CAPA.texto,
-        texto: 'Nueva capa'
-      }, capas.length);
-      agregarCapa(capa);
-    }
-
-  }, [capas, agregarCapa]);
 
   return (
     <section className="polos">

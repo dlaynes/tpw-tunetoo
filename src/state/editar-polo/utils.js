@@ -1,3 +1,6 @@
+
+import { v4 as uuidv4 } from "uuid";
+
 import { CAPA_BASE } from "./constantes";
 
 export function colorAleatorio(){
@@ -12,6 +15,8 @@ export function colorAleatorio(){
 export function crearCapa(capa, desplazamiento) {
   return Object.assign({}, CAPA_BASE, {
     ...capa,
+    id: uuidv4(),
+    title: "Capa " + (desplazamiento+1),
     top: CAPA_BASE.top + 10 * desplazamiento,
     left: CAPA_BASE.left + 10 * desplazamiento,
   });

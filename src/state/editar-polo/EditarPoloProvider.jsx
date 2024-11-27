@@ -1,24 +1,31 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { v4 as uuidv4 } from "uuid";
 
 import { EditarPoloContext } from "./EditarPoloContext";
+
+import { crearCapa } from "./utils";
+import { TIPO_CAPA } from "./constantes";
 
 /**
  * Implementación de las variables globales concernientes a la edición de un polo
  *
  * Revisar los comentarios en PolosProvider.jsx
  */
+
 export const EditarPoloProvider = ({ children }) => {
   // Polo sobre el cual se van a modificar las capas
   const [polo, cambiarPolo] = useState(null);
   // Capas de diseño del polo actual
-  const [capas, cambiarCapas] = useState([]);
+  const [capas, cambiarCapas] = useState([
+    crearCapa({
+      tipo: TIPO_CAPA.texto,
+      texto: 'Nueva capa',
+      seleccionada: true
+    }, 0)
+  ]);
 
   const agregarCapa = (capa) => {
     cambiarCapas((capasPrev) => {
-      capa.id = uuidv4();
-      capa.title = "Capa " + (capasPrev.length+1);
       return [...capasPrev, capa]
     });
   };

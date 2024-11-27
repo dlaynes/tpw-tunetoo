@@ -76,8 +76,12 @@
   margin-top: 2px;
   margin-bottom: 2px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.capas-ordenables .sortable-item .title {
+  display: flex-item;
+  flex: 1;
 }
 
 .capas-ordenables .sortable-item img {

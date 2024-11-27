@@ -19,8 +19,8 @@ export const SortableItem = ({capa}) => {
   };
 
   return (
-    <div className="sortable-item" ref={setNodeRef} style={style} {...listeners} {...attributes}>
-      <span>{capa.title}</span>
+    <div className="sortable-item" ref={setNodeRef} style={style} {...attributes}>
+      <span className="title" {...listeners}>{capa.title}</span>
       <span>
         <img src="/images/disenador/svg/delete-svgrepo-com.svg" />
         <img src="/images/disenador/svg/pencil-svgrepo-com.svg" />

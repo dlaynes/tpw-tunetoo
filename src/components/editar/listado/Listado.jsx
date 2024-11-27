@@ -40,8 +40,6 @@ export const Listado = () => {
     }
   }
 
-  console.log("Capas", capas);
-
   return (
 
       <div className='capas-ordenables'>
