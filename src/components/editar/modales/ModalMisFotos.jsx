@@ -3,6 +3,8 @@ import { ModalWrapper } from '../../ModalWrapper';
 
 /**
  * El componente ModalMisFotos muestra un seleccionador de imágenes del usuario
+ * para agregar la imagen seleccionada al diseño actual
+ *
  * Parámetros externos (props)
  * props.visible : booleano que sirve para mostrar o no mostrar el formulario
  * props.cambiarModal : funcion llamada cada vez que hacemos clic en el botón cerrar, sirve para esconder el propio modal

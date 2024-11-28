@@ -16,9 +16,6 @@ const gallery = [
 /**
  * El componente Artshop representa el contenido principal de la página ART SHOP
  * Con un array de datos (gallery), crea las imágenes con efectos especiales usando cada uno de los elementos del array
- *
- * @param {*} props
- * @returns
  */
 export const Artshop = () => {
   return (

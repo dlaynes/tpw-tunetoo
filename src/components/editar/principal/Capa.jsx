@@ -6,10 +6,11 @@ import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext"
 // import { TIPO_CAPA } from "../../../state/editar-polo/constantes";
 
 /**
- * El componente Capa se encarga de mostrar una capa en el editor de polos.
+ * El componente Capa se encarga de mostrar una capa en el editor del diseño de un polo.
  * Le da presentación visual al componente, y muestra las imágenes y textos respectivos.
  * Permite realizar operaciones de rotación, redimensionamiento y cambio de posición mediante la librería ResizableBox
  *
+ * Parámetros externos (props)
  * props.capa Capa a ser dibujada
  * props.pos Posición actual de la capa en el array de capas
  *

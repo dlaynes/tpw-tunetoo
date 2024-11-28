@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
 /**
- * El componente ModalWrapper muestra la parte externa de un modal
+ * El componente ModalWrapper muestra la parte que envuelve a un modal (Popup)
+ *
  * Parámetros externos (props)
  * props.visible : booleano que sirve para mostrar o no mostrar el formulario
  * props.cambiarModal : funcion llamada cada vez que hacemos clic en el botón cerrar, sirve para esconder el propio modal

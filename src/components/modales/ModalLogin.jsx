@@ -3,6 +3,7 @@ import { ModalWrapper } from '../ModalWrapper';
 
 /**
  * El componente ModalLogin muestra el formulario de inicio de sesión
+ *
  * Parámetros externos (props)
  * props.visible : booleano que sirve para mostrar o no mostrar el formulario
  * props.cambiarModal : funcion llamada cada vez que hacemos clic en el botón cerrar, sirve para esconder el propio modal

@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 
 /**
  * El componente Cabecera sirve para mostrar el menú de navegación y la imagen banner de la página web
+ *
  * Parámetros externos (props)
  * props.cambiarModal : funcion llamada cada vez que hacemos clic en el botón iniciar sesión, sirve para abrir el modal de Login
  *

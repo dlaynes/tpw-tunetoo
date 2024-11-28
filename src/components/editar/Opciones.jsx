@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 /**
  * El componente Opciones muestra el listado de opciones (botones) para crear capas nuevas
  *
+ * Parámetros externos (props)
+ * props.children Los botones que sirven para crear una capa según su tipo
+ *
  * @param {*} props
  * @returns
  */

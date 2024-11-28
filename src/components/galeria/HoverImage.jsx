@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 /**
- * El componente HoverImage permite mostrar una imagen diferente cuando el mouse se ubica encima
+ * El componente HoverImage permite mostrar una imagen diferente cuando el mouse se ubica encima,
+ * cambiando la imagen que es normalmente presentada al usuario
+ *
  * Parámetros externos (props)
  * props.src : imagen normal
  * props.hover : imagen que aparece al ubicar el mouse encima
