@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { EditarPoloContext } from "./EditarPoloContext";
 
-import { crearCapa } from "./utils";
+import { crearCapa, excluirCapa } from "./utils";
 import { TIPO_CAPA } from "./constantes";
 
 /**
@@ -23,15 +23,14 @@ export const EditarPoloProvider = ({ children }) => {
       seleccionada: true
     }, 0)
   ]);
+  // Capa seleccionada
+  const [capaActual, seleccionarCapa] = useState(capas?.find((it) => it?.seleccionada === true));
 
   const agregarCapa = (capa) => {
     cambiarCapas((capasPrev) => {
       return [...capasPrev, capa]
     });
-  };
-
-  const excluirCapa = (capasPrev, capa) => {
-    return capasPrev.filter((it) => it.id !== capa.id);
+    seleccionarCapa(capa);
   };
 
   const actualizarCapa = (capa) => {
@@ -40,28 +39,13 @@ export const EditarPoloProvider = ({ children }) => {
       const nuevaCapa = Object.assign({}, capaAnterior, capa);
       return [...excluirCapa(capasPrev, capa), nuevaCapa];
     });
+    seleccionarCapa(capa);
   };
 
   const borrarCapa = (capa) => {
     cambiarCapas((capasPrev) => [...excluirCapa(capasPrev, capa)]);
+    seleccionarCapa(capas[0] || null);
   };
-
-  /**
-   * Seleccionamos una de las capas de nuestro listado, mediante su id,
-   * esto se realiza habilitando la propiedad "seleccionada"
-   *
-   * @param {*} capa
-   */
-  const seleccionarCapa = (capa) => {
-    cambiarCapas((capasPrev) =>
-      capasPrev.map((it) =>
-        Object.assign({}, it, { seleccionada: it.id === capa.id })
-      )
-    );
-  };
-
-  // Esta variable facilita el acceso a la capa seleccionada
-  const capaActual = capas?.find((it) => it?.seleccionada === true);
 
   return (
     <EditarPoloContext.Provider

@@ -18,7 +18,7 @@ import { CSS } from "@dnd-kit/utilities";
  * @param {*} param0
  * @returns
  */
-export const SortableItem = ({ capa, borrar, seleccionar }) => {
+export const SortableItem = ({ capa, borrar, seleccionar, seleccionada }) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: capa.id });
 
@@ -29,7 +29,7 @@ export const SortableItem = ({ capa, borrar, seleccionar }) => {
 
   return (
     <div
-      className={["sortable-item", capa.seleccionada && "chosen"].join(" ")}
+      className={["sortable-item", seleccionada && "chosen"].join(" ")}
       onClick={() => {
         console.log("Seleccionando capa", capa);
         seleccionar(capa);
@@ -49,13 +49,13 @@ export const SortableItem = ({ capa, borrar, seleccionar }) => {
             e.stopPropagation();
           }}
         />
-        <img
+        {!!borrar && <img
           src="/images/disenador/svg/delete-svgrepo-com.svg"
           onClick={(e) => {
             borrar(capa);
             e.stopPropagation();
           }}
-        />
+        />}
       </span>
     </div>
   );
@@ -69,4 +69,5 @@ SortableItem.propTypes = {
   }),
   borrar: PropTypes.func,
   seleccionar: PropTypes.func,
+  seleccionada: PropTypes.bool
 };

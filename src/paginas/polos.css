@@ -38,7 +38,6 @@
 
 .capas-limits .shadow {
   position: absolute;
-  text-align: center;
 }
 
 .capas-limits .shadow-image {
@@ -176,4 +175,5 @@
 .modal-galeria .foto-actual img {
   margin-top: 10px;
   height: 128px;
+  object-fit: cover;
 }

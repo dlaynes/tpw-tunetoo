@@ -11,7 +11,7 @@ import { Capa } from "./principal/Capa";
  */
 
 export const Capas = () => {
-  const { capas, actualizarCapa } = useContext(EditarPoloContext);
+  const { capas, capaActual, actualizarCapa } = useContext(EditarPoloContext);
 
   return (
     <div className="capas-container">
@@ -20,6 +20,7 @@ export const Capas = () => {
           {capas.map((capa, i) => (
             <Capa
               key={"principal-capa-" + capa.id}
+              seleccionada={capaActual?.id === capa.id}
               actualizarCapa={actualizarCapa}
               capa={capa}
               pos={i}

@@ -28,7 +28,7 @@ import { SortableItem } from "./SortableItem";
  * @returns
  */
 export const Listado = () => {
-  const { capas, cambiarCapas, seleccionarCapa, borrarCapa } =
+  const { capas, capaActual, cambiarCapas, seleccionarCapa, borrarCapa } =
     useContext(EditarPoloContext);
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -71,11 +71,12 @@ export const Listado = () => {
           <SortableContext items={capas} strategy={verticalListSortingStrategy}>
             {capas.map((it) => (
               <SortableItem
+                seleccionada={capaActual?.id === it.id}
                 key={"draggable-key-" + it.id}
                 id={it.id}
                 capa={it}
                 seleccionar={seleccionarCapa}
-                borrar={borrar}
+                borrar={capas.length > 1 ? borrar : null}
               />
             ))}
           </SortableContext>

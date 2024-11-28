@@ -19,7 +19,7 @@ import { CapaTexto } from "./CapaTexto";
  * @returns
  */
 
-export const Capa = ({capa, pos}) => {
+export const Capa = ({capa, pos, seleccionada}) => {
 
   const { actualizarCapa, seleccionarCapa } = useContext(EditarPoloContext);
 
@@ -48,10 +48,10 @@ export const Capa = ({capa, pos}) => {
     });
   };
 
-  const nivel = pos + (capa.seleccionada ? NIVEL_SELECCIONADO : 0);
+  const nivel = pos + (seleccionada ? NIVEL_SELECCIONADO : 0);
 
   return (
-    <div className={capa.seleccionada ? "capa-actual" : ''} onClick={() => seleccionarCapa(capa)}
+    <div className={seleccionada ? "capa-actual" : ''} onClick={() => seleccionarCapa(capa)}
       style={{zIndex: nivel}}>
       {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && <CapaImagen capa={capa} />}
       {capa.tipo === TIPO_CAPA.texto && <CapaTexto capa={capa} />}
@@ -63,11 +63,11 @@ export const Capa = ({capa, pos}) => {
         left={capa.left}
         top={capa.top}
         rotationDeg={capa.rotationDeg}
-        rotatable={capa.seleccionada}
+        rotatable={seleccionada}
         onRotate={onRotateHandler}
         draggable={true}
         onDrag={onDragHandler}
-        resizable={capa.seleccionada}
+        resizable={seleccionada}
         onResize={onResizeHandler}
         >{capa.texto}</ResizableBox>
     </div>
@@ -89,5 +89,6 @@ Capa.propTypes = {
     url: PropTypes.string,
     seleccionada: PropTypes.bool,
   }),
-  pos: PropTypes.number
+  pos: PropTypes.number,
+  seleccionada: PropTypes.bool
 };

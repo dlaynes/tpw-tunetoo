@@ -19,7 +19,10 @@ export const CapaTexto = ({ capa }) => {
         height: capa.height,
         transform: "rotate(" + capa.rotationDeg + "deg)",
         backgroundColor: capa.backgroundColor,
-        color: capa.color
+        color: capa.color,
+        fontSize: capa.fontSize,
+        fontFamily: capa.fontFamily,
+        textAlign: capa.textAlign
       }}
     >
       {capa.texto}
@@ -40,6 +43,9 @@ CapaTexto.propTypes = {
     left: PropTypes.number,
     url: PropTypes.string,
     backgroundColor: PropTypes.string,
-    color: PropTypes.string
+    color: PropTypes.string,
+    fontSize: PropTypes.string,
+    fontFamily: PropTypes.string,
+    textAlign: PropTypes.string
   })
 };

@@ -33,3 +33,16 @@ export function crearCapa(capa, desplazamiento) {
     left: CAPA_BASE.left + 10 * desplazamiento,
   });
 };
+
+
+/** Funciones de capas */
+
+export const excluirCapa = (capasPrev, capa) => {
+  return capasPrev.filter((it) => it.id !== capa.id);
+};
+
+export const cambiarEstadoSeleccion = (capasPrev, capa) => {
+  return capasPrev.map((it) =>
+    Object.assign({}, it, { seleccionada: it.id === capa.id })
+  )
+};

@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 
 /**
- * El componente Opciones muestra el listado de opciones (botones) para crear capas nuevas
+ * El componente Opciones muestra el listado de opciones (botones) para crear capas nuevas.
+ * En un proyecto avanzado, en nuestra opinión es mejor reemplazarlo por un componente de la librería styled
  *
  * Parámetros externos (props)
  * props.children Los botones que sirven para crear una capa según su tipo

@@ -22,8 +22,9 @@ export const CAPA_BASE = {
   url: "",
   color: "#FFFFFF",
   rotationDeg: 0,
-  fontFamily: "",
-  fontSize: 14,
+  fontFamily: "Arial, Verdana, SansSerif",
+  fontSize: 16,
+  textAlign: "center",
   backgroundColor: "transparent",
 };
 
