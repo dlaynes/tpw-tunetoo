@@ -173,7 +173,7 @@
   max-height: 40px;
 }
 
-.modal-galeria .foto-actual button[disabled] {
+.modal button[disabled] {
   background-color: gray;
 }
 

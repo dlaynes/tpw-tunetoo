@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { ResizableBox } from '@dantecoder/react-resizablebox';
 import { useContext } from "react";
 import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext";
-import { NIVEL_SELECCIONADO, TIPO_CAPA } from "../../../state/editar-polo/constantes";
+import { NIVEL_SELECCIONADO, TIPO_CAPA } from "../../../state/utils/constantes";
 import { CapaImagen } from "./CapaImagen";
 import { CapaTexto } from "./CapaTexto";
 

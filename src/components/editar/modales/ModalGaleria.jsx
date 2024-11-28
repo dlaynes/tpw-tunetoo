@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { ModalWrapper } from '../../ModalWrapper';
-import { GALERIA, TIPO_CAPA } from '../../../state/editar-polo/constantes';
+import { GALERIA, TIPO_CAPA } from '../../../state/utils/constantes';
 import { Categoria } from './Categoria';
 import { useContext, useState } from 'react';
 import { EditarPoloContext } from '../../../state/editar-polo/EditarPoloContext';
-import { crearCapa } from '../../../state/editar-polo/utils';
+import { crearCapa } from '../../../state/utils/funciones';
 
 /**
  * El componente ModalGaleria permite seleccionar una imagen de la galería (imágenes predefinidas)
@@ -23,7 +23,9 @@ export const ModalGaleria = (props) => {
   const { agregarCapa, capas } = useContext(EditarPoloContext);
 
   const agregar = () => {
-    if(!fotoSeleccionada) return;
+    if(!fotoSeleccionada) {
+      alert("Seleccione una foto de la galería");
+    }
 
     agregarCapa(crearCapa({
       tipo: TIPO_CAPA.galeria,

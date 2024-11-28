@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { EditarPoloContext } from "./EditarPoloContext";
 
 import { crearCapa, excluirCapa } from "../utils/funciones";
-import { LIMITE_CAPAS, TIPO_CAPA } from "./constantes";
+import { LIMITE_CAPAS, TIPO_CAPA } from "../utils/constantes";
 
 /**
  * Implementación de las variables globales concernientes a la edición de un polo
