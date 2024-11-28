@@ -19,7 +19,7 @@ export const ModalWrapper = (props) => {
 
   return (
     <div className="modal" style={{display: props.visible ? "block" : "none"}}>
-      <div className="modal-content">
+      <div className="modal-content" style={props.modalContentStyle}>
         <span className="close" onClick={cerrar}>&times;</span>
         {props.children}
       </div>
@@ -30,5 +30,6 @@ export const ModalWrapper = (props) => {
 ModalWrapper.propTypes = {
   visible: PropTypes.bool,
   cambiarModal: PropTypes.func,
-  children: PropTypes.node
+  children: PropTypes.node,
+  modalContentStyle: PropTypes.object
 }

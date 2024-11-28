@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import { ResizableBox } from '@dantecoder/react-resizablebox';
 import { useContext } from "react";
 import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext";
-
-// import { TIPO_CAPA } from "../../../state/editar-polo/constantes";
+import { NIVEL_SELECCIONADO, TIPO_CAPA } from "../../../state/editar-polo/constantes";
+import { CapaImagen } from "./CapaImagen";
+import { CapaTexto } from "./CapaTexto";
 
 /**
  * El componente Capa se encarga de mostrar una capa en el editor del diseño de un polo.
@@ -20,7 +21,7 @@ import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext"
 
 export const Capa = ({capa, pos}) => {
 
-  const { actualizarCapa } = useContext(EditarPoloContext);
+  const { actualizarCapa, seleccionarCapa } = useContext(EditarPoloContext);
 
   const onDragHandler = (e) => {
     actualizarCapa({
@@ -47,30 +48,28 @@ export const Capa = ({capa, pos}) => {
     });
   };
 
+  const nivel = pos + (capa.seleccionada ? NIVEL_SELECCIONADO : 0);
+
   return (
-    <div>
-      <div className="shadow" style={{
-        left: capa.left,
-        top: capa.top,
-        width: capa.width,
-        height: capa.height,
-        zIndex: pos,
-        transform: 'rotate('+capa.rotationDeg+'deg)'
-      }}>{capa.texto}</div>
+    <div className={capa.seleccionada ? "capa-actual" : ''} onClick={() => seleccionarCapa(capa)}
+      style={{zIndex: nivel}}>
+      {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && <CapaImagen capa={capa} />}
+      {capa.tipo === TIPO_CAPA.texto && <CapaTexto capa={capa} />}
       <ResizableBox
-        key={"resizable-box-"+capa.id}
-        style={{zIndex: pos + 100}}
+        key={"resizable-box-"+capa.id+"-"+nivel}
         className="capa"
         width={capa.width}
         height={capa.height}
         left={capa.left}
         top={capa.top}
         rotationDeg={capa.rotationDeg}
-        onDrag={onDragHandler}
-        onResize={onResizeHandler}
+        rotatable={capa.seleccionada}
         onRotate={onRotateHandler}
+        draggable={true}
+        onDrag={onDragHandler}
+        resizable={capa.seleccionada}
+        onResize={onResizeHandler}
         >{capa.texto}</ResizableBox>
-
     </div>
   );
 };
@@ -87,7 +86,8 @@ Capa.propTypes = {
     top: PropTypes.number,
     left: PropTypes.number,
     type: PropTypes.number,
-    url: PropTypes.string
+    url: PropTypes.string,
+    seleccionada: PropTypes.bool,
   }),
   pos: PropTypes.number
 };

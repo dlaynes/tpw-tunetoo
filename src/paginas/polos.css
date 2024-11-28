@@ -38,8 +38,37 @@
 
 .capas-limits .shadow {
   position: absolute;
+  text-align: center;
 }
 
+.capas-limits .shadow-image {
+  display: flex;
+  align-items: center;
+}
+
+.capas-limits .shadow img {
+  max-width: 100%;
+  height: auto;
+  object-fit: fill;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.capas-limits ._rectangle_no30z_5,
+.capas-limits ._rotateHandler_no30z_22,
+.capas-limits ._resizeHandler_no30z_12
+ {
+  color: gray;
+  fill: gray;
+}
+
+.capas-limits .capa-actual ._rectangle_no30z_5,
+.capas-limits .capa-actual ._rotateHandler_no30z_22,
+.capas-limits .capa-actual ._resizeHandler_no30z_12
+ {
+  color: red;
+  fill: red;
+}
 
 .capas-aside {
   width: 300px;
@@ -89,6 +118,10 @@
   align-items: center;
 }
 
+.capas-ordenables .chosen {
+  background-color: lightgoldenrodyellow;
+}
+
 .capas-ordenables .sortable-item .title {
   display: flex-item;
   flex: 1;
@@ -99,4 +132,48 @@
   display: inline-block;
   margin-left: 2px;
   margin-right: 2px;
+}
+
+.modal-galeria .scroll {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.modal-galeria .categoria .imagenes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-auto-rows: auto;
+  background-color: lightblue;
+}
+
+.modal-galeria .categoria .imagenes .foto {
+ text-align: center;
+ padding: 20px;
+}
+
+.modal-galeria .categoria .imagenes .foto img {
+  max-width: 80%;
+  height: auto;
+}
+
+.modal-galeria .foto-actual {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.modal-galeria .foto-actual button {
+  max-height: 40px;
+}
+
+.modal-galeria .foto-actual button[disabled] {
+  background-color: gray;
+}
+
+.modal-galeria .foto-actual img {
+  margin-top: 10px;
+  height: 128px;
 }
