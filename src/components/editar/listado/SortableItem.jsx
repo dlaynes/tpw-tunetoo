@@ -38,7 +38,7 @@ export const SortableItem = ({ capa, borrar, seleccionar, seleccionada }) => {
       {...attributes}
     >
       <span className="title" {...listeners}>
-        {capa.title}
+        {capa.title || 'Sin título'}
       </span>
       <span>
         <img

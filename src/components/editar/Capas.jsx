@@ -1,4 +1,7 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
+import { exportComponentAsPNG } from 'react-component-export-image';
+
+
 import { EditarPoloContext } from "../../state/editar-polo/EditarPoloContext";
 import { Capa } from "./principal/Capa";
 
@@ -12,10 +15,19 @@ import { Capa } from "./principal/Capa";
 
 export const Capas = () => {
   const { capas, capaActual, actualizarCapa } = useContext(EditarPoloContext);
+  const ref = useRef();
+  const [exportando, setExportando] = useState(false);
+
+  const exportar = () => {
+    setExportando(true);
+    // En casos avanzados, no es recomendable usar setTimeout pues no se adecua al flujo de eventos de React
+    setTimeout(() => exportComponentAsPNG(ref), 300);
+    setTimeout(() => setExportando(false), 600);
+  };
 
   return (
     <div className="capas-container">
-      <div className="capas-inner">
+      <div className={"capas-inner" + (exportando ? " capas-exportando" : "")} ref={ref}>
         <div className="capas-limits" id="capas-limits">
           {capas.map((capa, i) => (
             <Capa
@@ -28,6 +40,7 @@ export const Capas = () => {
           ))}
         </div>
       </div>
+      <button className="exportar" type="button" onClick={exportar}>Exportar imagen</button>
     </div>
   );
 };

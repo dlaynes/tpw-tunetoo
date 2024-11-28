@@ -9,8 +9,6 @@ import PropTypes from "prop-types";
  */
 
 export const CapaTexto = ({ capa, seleccionada }) => {
-  console.log("Capa", capa)
-
   const bgColor = !seleccionada
     ? capa.backgroundColor
     : capa.backgroundColor !== "transparent"
@@ -26,13 +24,18 @@ export const CapaTexto = ({ capa, seleccionada }) => {
         height: capa.height,
         transform: "rotate(" + capa.rotationDeg + "deg)",
         backgroundColor: bgColor,
-        color: capa.color,
-        fontSize: capa.fontSize,
-        fontFamily: capa.fontFamily,
         textAlign: capa.textAlign,
       }}
     >
-      {capa.texto}
+      <span
+        style={{
+          color: capa.color,
+          fontSize: capa.fontSize + "px",
+          fontFamily: capa.fontFamily,
+        }}
+      >
+        {capa.texto}
+      </span>
     </div>
   );
 };

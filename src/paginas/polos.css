@@ -18,7 +18,16 @@
 .capas-container {
   display: flex;
   flex: 1;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.capas-container .exportar {
+  display: inline-block;
+  margin-top: 20px;
+  width: 180px;
+  height: 30px;
+  font-weight: bold;
 }
 
 .capas-inner {
@@ -67,6 +76,12 @@
  {
   color: red;
   fill: red;
+}
+
+.capas-exportando ._rectangle_no30z_5,
+.capas-exportando ._rotateHandler_no30z_22,
+.capas-exportando ._resizeHandler_no30z_12 {
+  opacity: 0;
 }
 
 .capas-aside {
@@ -132,10 +147,11 @@
 }
 
 .capas-ordenables .sortable-item img {
-  height: 15px;
+  height: 18px;
   display: inline-block;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 3px;
+  margin-top: 1px;
+  margin-right: 3px;
 }
 
 .modal-galeria .scroll {
