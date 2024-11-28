@@ -27,7 +27,7 @@ export const Polos = () => {
       <Capas />
       <div className="capas-aside">
         <Opciones>
-          <Accion src="/images/disenador/recraft/new-layer.jpg" legend="Nueva capa" onClick={()=>setMostrarNuevaCapa(true)} />
+          <Accion src="/images/disenador/recraft/new-layer.jpg" legend="Capa de texto" onClick={()=>setMostrarNuevaCapa(true)} />
           <Accion src="/images/disenador/recraft/gallery.jpg" legend="Galería" onClick={()=>setMostrarGaleria(true)} />
           <Accion src="/images/disenador/recraft/my-photos.jpg" legend="Mis fotos" onClick={()=>setMostrarMisFotos(true)} />
         </Opciones>

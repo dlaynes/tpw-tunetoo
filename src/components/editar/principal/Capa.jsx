@@ -53,8 +53,8 @@ export const Capa = ({capa, pos, seleccionada}) => {
   return (
     <div className={seleccionada ? "capa-actual" : ''} onClick={() => seleccionarCapa(capa)}
       style={{zIndex: nivel}}>
-      {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && <CapaImagen capa={capa} />}
-      {capa.tipo === TIPO_CAPA.texto && <CapaTexto capa={capa} />}
+      {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && <CapaImagen capa={capa} seleccionada={seleccionada} />}
+      {capa.tipo === TIPO_CAPA.texto && <CapaTexto capa={capa} seleccionada={seleccionada} />}
       <ResizableBox
         key={"resizable-box-"+capa.id+"-"+nivel}
         className="capa"

@@ -126,6 +126,11 @@
   flex: 1;
 }
 
+.capas-ordenables .sortable-item .title:hover {
+  background-color: rgb(243, 217, 221);
+  cursor: move;
+}
+
 .capas-ordenables .sortable-item img {
   height: 15px;
   display: inline-block;

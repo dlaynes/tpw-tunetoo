@@ -8,7 +8,14 @@ import PropTypes from "prop-types";
  * @returns
  */
 
-export const CapaTexto = ({ capa }) => {
+export const CapaTexto = ({ capa, seleccionada }) => {
+  console.log("Capa", capa)
+
+  const bgColor = !seleccionada
+    ? capa.backgroundColor
+    : capa.backgroundColor !== "transparent"
+    ? capa.backgroundColor
+    : "rgba(255,0,0,0.1)";
   return (
     <div
       className="shadow"
@@ -18,11 +25,11 @@ export const CapaTexto = ({ capa }) => {
         width: capa.width,
         height: capa.height,
         transform: "rotate(" + capa.rotationDeg + "deg)",
-        backgroundColor: capa.backgroundColor,
+        backgroundColor: bgColor,
         color: capa.color,
         fontSize: capa.fontSize,
         fontFamily: capa.fontFamily,
-        textAlign: capa.textAlign
+        textAlign: capa.textAlign,
       }}
     >
       {capa.texto}
@@ -46,6 +53,7 @@ CapaTexto.propTypes = {
     color: PropTypes.string,
     fontSize: PropTypes.string,
     fontFamily: PropTypes.string,
-    textAlign: PropTypes.string
-  })
+    textAlign: PropTypes.string,
+  }),
+  seleccionada: PropTypes.bool,
 };

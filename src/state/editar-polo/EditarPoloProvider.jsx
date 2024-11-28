@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 import { EditarPoloContext } from "./EditarPoloContext";
 
-import { crearCapa, excluirCapa } from "./utils";
-import { TIPO_CAPA } from "./constantes";
+import { crearCapa, excluirCapa } from "../utils/funciones";
+import { LIMITE_CAPAS, TIPO_CAPA } from "./constantes";
 
 /**
  * Implementación de las variables globales concernientes a la edición de un polo
  *
- * Revisar los comentarios en PolosProvider.jsx
+ * Revisar los comentarios en state/polos/PolosProvider.jsx
  */
 
 export const EditarPoloProvider = ({ children }) => {
@@ -20,14 +20,17 @@ export const EditarPoloProvider = ({ children }) => {
     crearCapa({
       tipo: TIPO_CAPA.texto,
       texto: 'Nueva capa',
-      seleccionada: true
     }, 0)
   ]);
   // Capa seleccionada
-  const [capaActual, seleccionarCapa] = useState(capas?.find((it) => it?.seleccionada === true));
+  const [capaActual, seleccionarCapa] = useState(null);
 
   const agregarCapa = (capa) => {
     cambiarCapas((capasPrev) => {
+      if(capasPrev.length >= LIMITE_CAPAS){
+        alert("Se han alcanzado el límite de capas");
+        return capasPrev;
+      }
       return [...capasPrev, capa]
     });
     seleccionarCapa(capa);

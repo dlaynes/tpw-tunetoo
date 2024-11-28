@@ -37,6 +37,12 @@ export function crearCapa(capa, desplazamiento) {
 
 /** Funciones de capas */
 
+// Utilitario que devuelve un array, en donde no estará presente el polo indicado
+export const excluirPolo = (polosPrev, polo) => {
+  return polosPrev.filter((it) => it.id !== polo.id);
+};
+
+
 export const excluirCapa = (capasPrev, capa) => {
   return capasPrev.filter((it) => it.id !== capa.id);
 };

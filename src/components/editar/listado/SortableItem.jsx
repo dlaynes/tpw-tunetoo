@@ -31,7 +31,6 @@ export const SortableItem = ({ capa, borrar, seleccionar, seleccionada }) => {
     <div
       className={["sortable-item", seleccionada && "chosen"].join(" ")}
       onClick={() => {
-        console.log("Seleccionando capa", capa);
         seleccionar(capa);
       }}
       ref={setNodeRef}

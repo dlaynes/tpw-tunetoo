@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 
 import { PolosContext } from "./PolosContext";
 
+import { excluirPolo } from '../utils/funciones'
+
 /**
  * Implementación de las variables globales concernientes a los polos de un usuario
  */
@@ -25,11 +27,6 @@ export const PolosProvider = ({ children }) => {
 
       return [...polosPrev, polo];
     });
-  };
-
-  // Utilitario que devuelve un array, en donde no estará presente el polo indicado
-  const excluirPolo = (polosPrev, polo) => {
-    return polosPrev.filter((it) => it.id !== polo.id);
   };
 
   // En esta función, actualizamos un polo de nuestra lista de polos, buscándolo mediante su ID

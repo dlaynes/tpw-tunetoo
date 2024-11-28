@@ -8,7 +8,13 @@ import PropTypes from "prop-types";
  * @returns
  */
 
-export const CapaImagen = ({ capa }) => {
+export const CapaImagen = ({ capa, seleccionada }) => {
+  const bgColor = !seleccionada
+    ? capa.backgroundColor
+    : capa.backgroundColor !== "transparent"
+    ? capa.backgroundColor
+    : "rgba(255,0,0,0.1)";
+
   return (
     <div
       className="shadow shadow-image"
@@ -18,7 +24,7 @@ export const CapaImagen = ({ capa }) => {
         width: capa.width,
         height: capa.height,
         transform: "rotate(" + capa.rotationDeg + "deg)",
-        backgroundColor: capa.backgroundColor
+        backgroundColor: bgColor,
       }}
     >
       <img src={capa.url} alt={capa.titulo} />
@@ -38,6 +44,7 @@ CapaImagen.propTypes = {
     top: PropTypes.number,
     left: PropTypes.number,
     url: PropTypes.string,
-    backgroundColor: PropTypes.string
-  })
+    backgroundColor: PropTypes.string,
+  }),
+  seleccionada: PropTypes.bool,
 };
