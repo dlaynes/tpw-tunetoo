@@ -37,10 +37,12 @@ export const Listado = () => {
     })
   );
 
+  // En el listado de capas ordenables, cuando se suelte un elemento, entonces reordenamos en el contexto correspondiente
+  // el array de capas del diseño
   const handleDragEnd = (event) => {
     const { active, over } = event;
 
-    if (active.id !== over.id) {
+    if (active.id !== over?.id) {
       cambiarCapas((items) => {
         const oldIndex = items.findIndex((it) => it.id === active.id);
         const newIndex = items.findIndex((it) => it.id === over.id);

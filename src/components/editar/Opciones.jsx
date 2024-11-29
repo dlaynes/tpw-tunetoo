@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 
 /**
- * El componente Opciones muestra el listado de opciones (botones) para crear capas nuevas.
- * En un proyecto avanzado, en nuestra opinión es mejor reemplazarlo por un componente de la librería styled
+ * El componente Opciones sirve para contener el listado de opciones (botones) que crean capas nuevas.
  *
  * Parámetros externos (props)
  * props.children Los botones que sirven para crear una capa según su tipo
@@ -13,8 +12,11 @@ import PropTypes from "prop-types";
 
 export const Opciones = (props) => {
   return (
-    <div className="opciones-container">
-      {props.children}
+    <div>
+      <h3>Agrega elementos al diseño:</h3>
+      <div className="opciones-container">
+        {props.children}
+      </div>
     </div>
   );
 };

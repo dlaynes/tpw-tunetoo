@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 
 import PropTypes from "prop-types";
 import { ModalWrapper } from "../../ModalWrapper";
-import { CAPA_BASE, TIPO_CAPA } from "../../../state/utils/constantes";
+import { CAPA_BASE, FUENTES, TIPO_CAPA } from "../../../state/utils/constantes";
 import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext";
 
 /**
@@ -134,9 +134,7 @@ export const ModalLayer = (props) => {
                   setProperty("fontFamily", event.target.value)
                 }
               >
-                <option value="Arial" style={{fontFamily: 'Arial'}}>Arial</option>
-                <option value="Sans-serif" style={{fontFamily: 'Sans-serif'}}>Sans-serif</option>
-                <option value="Console" style={{fontFamily: 'Console'}}>Console</option>
+                {FUENTES.map( f => <option key={"fuente-"+f} value={f} style={{fontFamily: f}}>{f}</option>)}
               </select>
             </p>
           </div>

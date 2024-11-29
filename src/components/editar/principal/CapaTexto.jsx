@@ -52,7 +52,7 @@ CapaTexto.propTypes = {
     url: PropTypes.string,
     backgroundColor: PropTypes.string,
     color: PropTypes.string,
-    fontSize: PropTypes.string,
+    fontSize: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
     fontFamily: PropTypes.string,
     textAlign: PropTypes.string,
   }),

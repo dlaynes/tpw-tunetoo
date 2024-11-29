@@ -22,8 +22,8 @@ export const EditarPoloProvider = ({ children }) => {
   // Capas del diseño del polo actual
   const [capas, cambiarCapas] = useState([
     crearCapa({
-      tipo: TIPO_CAPA.texto,
-      texto: 'Nueva capa',
+      tipo: TIPO_CAPA.imagen,
+      url: '/images/disenador/gallery/iconpacks/christmas-wreath-13032.png'
     }, 0)
   ]);
   // Capa seleccionada
@@ -46,7 +46,6 @@ export const EditarPoloProvider = ({ children }) => {
       const nuevaCapa = Object.assign({}, capaAnterior, capa);
       return [...excluirCapa(capasPrev, capa), nuevaCapa];
     });
-    seleccionarCapa(capa);
   };
 
   const borrarCapa = (capa) => {
