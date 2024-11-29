@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { colorFondo } from "../../../state/utils/funciones";
 
 /**
  * El componente CapaImagen se encarga de dibujar las imágenes en el diseñador de polos,
@@ -8,12 +9,8 @@ import PropTypes from "prop-types";
  * @returns
  */
 
-export const CapaImagen = ({ capa, seleccionada }) => {
-  const bgColor = !seleccionada
-    ? capa.backgroundColor
-    : capa.backgroundColor !== "transparent"
-    ? capa.backgroundColor
-    : "rgba(255,0,0,0.1)";
+export const CapaImagen = ({ capa, seleccionada, imprimiendo }) => {
+  const bgColor = colorFondo(capa.backgroundColor, seleccionada, imprimiendo);
 
   return (
     <div
@@ -47,4 +44,5 @@ CapaImagen.propTypes = {
     backgroundColor: PropTypes.string,
   }),
   seleccionada: PropTypes.bool,
+  imprimiendo: PropTypes.bool
 };

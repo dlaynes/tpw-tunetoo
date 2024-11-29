@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { ResizableBox } from '@dantecoder/react-resizablebox';
+import { ResizableBox } from "@dantecoder/react-resizablebox";
 import { useContext } from "react";
 import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext";
 import { NIVEL_SELECCIONADO, TIPO_CAPA } from "../../../state/utils/constantes";
@@ -19,8 +19,7 @@ import { CapaTexto } from "./CapaTexto";
  * @returns
  */
 
-export const Capa = ({capa, pos, seleccionada}) => {
-
+export const Capa = ({ capa, pos, seleccionada, imprimiendo }) => {
   const { actualizarCapa, seleccionarCapa } = useContext(EditarPoloContext);
 
   const onDragHandler = (e) => {
@@ -28,7 +27,7 @@ export const Capa = ({capa, pos, seleccionada}) => {
       id: capa.id,
       left: e.style.left,
       top: e.style.top,
-    })
+    });
   };
 
   const onResizeHandler = (e) => {
@@ -37,26 +36,33 @@ export const Capa = ({capa, pos, seleccionada}) => {
       left: e.style.left,
       top: e.style.top,
       width: e.style.width,
-      height: e.style.height
+      height: e.style.height,
     });
   };
 
   const onRotateHandler = (e) => {
     actualizarCapa({
       id: capa.id,
-      rotationDeg: e.style.rotationDeg
+      rotationDeg: e.style.rotationDeg,
     });
   };
 
   const nivel = pos + (seleccionada ? NIVEL_SELECCIONADO : 0);
 
   return (
-    <div className={seleccionada ? "capa-actual" : ''} onClick={() => seleccionarCapa(capa)}
-      style={{zIndex: nivel}}>
-      {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && <CapaImagen capa={capa} seleccionada={seleccionada} />}
-      {capa.tipo === TIPO_CAPA.texto && <CapaTexto capa={capa} seleccionada={seleccionada} />}
+    <div
+      className={seleccionada ? "capa-actual" : ""}
+      onClick={() => seleccionarCapa(capa)}
+      style={{ zIndex: nivel }}
+    >
+      {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && (
+        <CapaImagen capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
+      )}
+      {capa.tipo === TIPO_CAPA.texto && (
+        <CapaTexto capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
+      )}
       <ResizableBox
-        key={"resizable-box-"+capa.id+"-"+nivel}
+        key={"resizable-box-" + capa.id + "-" + nivel}
         className="capa"
         width={capa.width}
         height={capa.height}
@@ -69,7 +75,9 @@ export const Capa = ({capa, pos, seleccionada}) => {
         onDrag={onDragHandler}
         resizable={seleccionada}
         onResize={onResizeHandler}
-        >{capa.texto}</ResizableBox>
+      >
+        {capa.texto}
+      </ResizableBox>
     </div>
   );
 };
@@ -88,7 +96,9 @@ Capa.propTypes = {
     type: PropTypes.number,
     url: PropTypes.string,
     seleccionada: PropTypes.bool,
+    imprimiendo: PropTypes.bool,
   }),
   pos: PropTypes.number,
-  seleccionada: PropTypes.bool
+  seleccionada: PropTypes.bool,
+  imprimiendo: PropTypes.bool
 };

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { colorFondo } from "../../../state/utils/funciones";
 
 /**
  * El componente CapaTexto se encarga de dibujar los textos en el diseñador de polos,
@@ -8,12 +9,9 @@ import PropTypes from "prop-types";
  * @returns
  */
 
-export const CapaTexto = ({ capa, seleccionada }) => {
-  const bgColor = !seleccionada
-    ? capa.backgroundColor
-    : capa.backgroundColor !== "transparent"
-    ? capa.backgroundColor
-    : "rgba(255,0,0,0.1)";
+export const CapaTexto = ({ capa, seleccionada, imprimiendo }) => {
+  const bgColor = colorFondo(capa.backgroundColor, seleccionada, imprimiendo);
+
   return (
     <div
       className="shadow"
@@ -59,4 +57,5 @@ CapaTexto.propTypes = {
     textAlign: PropTypes.string,
   }),
   seleccionada: PropTypes.bool,
+  imprimiendo: PropTypes.bool
 };

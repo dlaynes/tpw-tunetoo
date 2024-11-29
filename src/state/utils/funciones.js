@@ -1,4 +1,3 @@
-
 import { v4 as uuidv4 } from "uuid";
 
 import { CAPA_BASE } from "./constantes";
@@ -8,11 +7,11 @@ import { CAPA_BASE } from "./constantes";
  *
  * @returns string
  */
-export function colorAleatorio(){
+export function colorAleatorio() {
   const banco = "ABCDEF0123456789";
   let aleatoria = "#";
   for (let i = 0; i < 6; i++) {
-      aleatoria += banco.charAt(Math.floor(Math.random() * banco.length));
+    aleatoria += banco.charAt(Math.floor(Math.random() * banco.length));
   }
   return aleatoria;
 }
@@ -28,12 +27,11 @@ export function crearCapa(capa, desplazamiento) {
   return Object.assign({}, CAPA_BASE, {
     ...capa,
     id: uuidv4(),
-    title: "Capa " + (desplazamiento+1),
+    title: "Capa " + (desplazamiento + 1),
     top: CAPA_BASE.top + 10 * desplazamiento,
     left: CAPA_BASE.left + 10 * desplazamiento,
   });
-};
-
+}
 
 /** Funciones de capas */
 
@@ -42,7 +40,6 @@ export const excluirPolo = (polosPrev, polo) => {
   return polosPrev.filter((it) => it.id !== polo.id);
 };
 
-
 export const excluirCapa = (capasPrev, capa) => {
   return capasPrev.filter((it) => it.id !== capa.id);
 };
@@ -50,5 +47,15 @@ export const excluirCapa = (capasPrev, capa) => {
 export const cambiarEstadoSeleccion = (capasPrev, capa) => {
   return capasPrev.map((it) =>
     Object.assign({}, it, { seleccionada: it.id === capa.id })
-  )
+  );
+};
+
+export const colorFondo = (backgroundColor, seleccionada, imprimiendo) => {
+  return !seleccionada
+    ? backgroundColor
+    : backgroundColor !== "transparent"
+    ? backgroundColor
+    : imprimiendo
+    ? "transparent"
+    : "rgba(255,0,0,0.1)";
 };

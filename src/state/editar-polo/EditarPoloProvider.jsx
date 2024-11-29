@@ -15,6 +15,10 @@ import { LIMITE_CAPAS, TIPO_CAPA } from "../utils/constantes";
 export const EditarPoloProvider = ({ children }) => {
   // Polo sobre el cual se van a modificar las capas
   const [polo, cambiarPolo] = useState(null);
+
+  // Booleano usado para esconder los controles de la página mientras se genera la imagen exportada.
+  const [imprimiendo, cambiarImprimiendo] = useState(false);
+
   // Capas del diseño del polo actual
   const [capas, cambiarCapas] = useState([
     crearCapa({
@@ -54,6 +58,7 @@ export const EditarPoloProvider = ({ children }) => {
     <EditarPoloContext.Provider
       value={{
         polo,
+        imprimiendo,
         capas,
         capaActual,
         cambiarPolo,
@@ -62,6 +67,7 @@ export const EditarPoloProvider = ({ children }) => {
         agregarCapa,
         actualizarCapa,
         borrarCapa,
+        cambiarImprimiendo
       }}
     >
       {children}
