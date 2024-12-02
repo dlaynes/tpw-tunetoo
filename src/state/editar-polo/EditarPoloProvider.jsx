@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { EditarPoloContext } from "./EditarPoloContext";
 
-import { crearCapa, excluirCapa } from "../utils/funciones";
+import { crearCapa, excluirElemento } from "../utils/funciones";
 import { LIMITE_CAPAS, TIPO_CAPA } from "../utils/constantes";
 
 /**
@@ -45,12 +45,12 @@ export const EditarPoloProvider = ({ children }) => {
     cambiarCapas((capasPrev) => {
       const capaAnterior = capasPrev.find((it) => it.id === capa.id);
       const nuevaCapa = Object.assign({}, capaAnterior, capa);
-      return [...excluirCapa(capasPrev, capa), nuevaCapa];
+      return [...excluirElemento(capasPrev, capa), nuevaCapa];
     });
   };
 
   const borrarCapa = (capa) => {
-    cambiarCapas((capasPrev) => [...excluirCapa(capasPrev, capa)]);
+    cambiarCapas((capasPrev) => [...excluirElemento(capasPrev, capa)]);
     seleccionarCapa(capas[0] || null);
   };
 

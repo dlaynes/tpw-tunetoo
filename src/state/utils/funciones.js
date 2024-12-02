@@ -35,13 +35,9 @@ export function crearCapa(capa, desplazamiento) {
 
 /** Funciones de capas */
 
-// Utilitario que devuelve un array, en donde no estará presente el polo indicado
-export const excluirPolo = (polosPrev, polo) => {
-  return polosPrev.filter((it) => it.id !== polo.id);
-};
-
-export const excluirCapa = (capasPrev, capa) => {
-  return capasPrev.filter((it) => it.id !== capa.id);
+// Utilitario que devuelve un array, en donde no estará presente el item indicado
+export const excluirElemento = (arrPrev, item) => {
+  return arrPrev.filter((it) => it.id !== item.id);
 };
 
 export const cambiarEstadoSeleccion = (capasPrev, capa) => {
@@ -50,6 +46,7 @@ export const cambiarEstadoSeleccion = (capasPrev, capa) => {
   );
 };
 
+/** Color de fondo de una capa seleccionada en el diseñador */
 export const colorFondo = (backgroundColor, seleccionada, imprimiendo) => {
   return !seleccionada
     ? backgroundColor

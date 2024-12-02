@@ -1,0 +1,5 @@
+1. Revisar el proyecto en línea: https://tpw-pic-o-rama.web.app/
+
+2. Para probar el proyecto de forma local, o realizar modificaciones,
+revisar el flujo de trabajo indicado en el documento del proyecto.
+Se requiere tener instalado node.js versión 22 o superior
