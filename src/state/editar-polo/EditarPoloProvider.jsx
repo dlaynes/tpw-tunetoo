@@ -19,13 +19,14 @@ export const EditarPoloProvider = ({ children }) => {
   // Booleano usado para esconder los controles de la página mientras se genera la imagen exportada.
   const [imprimiendo, cambiarImprimiendo] = useState(false);
 
-  // Capas del diseño del polo actual
+  // Capas del diseño del polo actual. Incluímos una capa de imagen de ejemplo.
   const [capas, cambiarCapas] = useState([
     crearCapa({
       tipo: TIPO_CAPA.imagen,
       url: '/images/disenador/gallery/iconpacks/christmas-wreath-13032.png'
     }, 0)
   ]);
+
   // Capa seleccionada
   const [capaActual, seleccionarCapa] = useState(null);
 
