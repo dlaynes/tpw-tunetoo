@@ -15,12 +15,12 @@ export const PolosProvider = ({ children }) => {
 
   const agregarPolo = (polo) => {
 
-    // Creamos un nuevo objeto array, que incluye el nuevo elemento polo a agregar a nuestro listado
-    // 1) No reusamos el array anterior polos que existe en memoria, porque si no, no va a funcionar la "reactividad"
-    // y no se va a producir un cambio en la interfaz
+    // Creamos un nuevo array, que incluye el nuevo elemento polo a agregar a nuestro listado
+    // 1) No reusamos el array anterior "polos" que existe en memoria, porque no va a funcionar la "reactividad"
+    // y no se va a producir un cambio en la interfaz.
     // 2) Usamos la versión de actualización de estado de useState() en la que se pasa una función callback,
-    // para evitar problemas con alguna ejecución concurrente y para evitar problemas
-    // con variables que no han sido todavía actualizadas por React en el ciclo actual.
+    // para evitar problemas con alguna ejecución concurrente que esté actualizando este contexto y para evitar problemas
+    // con variables que no han sido todavía actualizadas por React en el ciclo actual en este contexto.
     cambiarPolos((polosPrev) => {
       // Cuando creamos un nuevo polo, le asignamos un ID "aleatorio".
       if(!polo.id){
@@ -46,7 +46,7 @@ export const PolosProvider = ({ children }) => {
     });
   };
 
-  // El borrado de polos es fácil de implementar reutilizando las funciones anteriores
+  // El borrado de polos es fácil de implementar, reutilizando las funciones anteriores
   const borrarPolo = (polo) => {
     cambiarPolos((polosPrev) => [...excluirElemento(polosPrev, polo)]);
   };
