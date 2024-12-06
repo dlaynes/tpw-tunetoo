@@ -23,7 +23,6 @@ export const ModalLogin = (props) => {
   // En caso se logre iniciar sesión a traves de alguno de los formularios, cerramos el modal
   if(usuario){
     props.cambiarModal(false);
-    return null;
   }
 
   return (
