@@ -20,3 +20,5 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export default app;
+
+// Similar a Firebase, existen otras alternativas de herramientas de alojamiento y desarrollo en la nube, como Supabase y AppWrite.

@@ -61,13 +61,12 @@ export const AutenticacionProvider = ({ children }) => {
     }
   };
 
-  const salir = async () => {
-    try {
-      await signOut();
+  const salir = () => {
+    signOut(auth).then(()=>{
       cambiarError(null);
-    } catch(e){
+    }).catch((e)=>{
       cambiarError(e);
-    }
+    });
   };
 
   return (

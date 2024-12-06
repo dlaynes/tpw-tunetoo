@@ -23,8 +23,6 @@ export const Cabecera = (props) => {
 
   const { usuario, salir } = useContext(AutenticacionContext);
 
-  console.log("Usuario actual", usuario);
-
   const cerrarSesion = async () => {
     await salir();
   };
@@ -95,7 +93,7 @@ export const Cabecera = (props) => {
               <br />
               <strong>{usuario.email}</strong>
               <br />
-              <a href="#" onClick={cerrarSesion}>
+              <a href="#" style={{color: 'red'}} onClick={cerrarSesion}>
                 Cerrar sesión
               </a>
             </div>
