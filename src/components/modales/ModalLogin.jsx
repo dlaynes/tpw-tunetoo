@@ -1,5 +1,10 @@
+import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+
 import { ModalWrapper } from '../ModalWrapper';
+import { Login } from './Auth/Login';
+import { Registro } from './Auth/Registro';
+import { AutenticacionContext } from '../../state/autenticacion/AutenticacionContext';
 
 /**
  * El componente ModalLogin muestra el formulario de inicio de sesión
@@ -12,15 +17,20 @@ import { ModalWrapper } from '../ModalWrapper';
  * @returns
  */
 export const ModalLogin = (props) => {
+  const [isLogin, setIsLogin] = useState(true);
+  const { usuario, error } = useContext(AutenticacionContext);
+
+  // En caso se logre iniciar sesión a traves de alguno de los formularios, cerramos el modal
+  if(usuario){
+    props.cambiarModal(false);
+    return null;
+  }
+
   return (
     <ModalWrapper {...props}>
-      <form>
-        <label htmlFor="username">Usuario:</label>
-        <input type="text" id="username" name="username" required />
-        <label htmlFor="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required />
-        <button type="submit">Iniciar sesión</button>
-      </form>
+      {error && <div style={{color: "red"}}>{error.message || "Hubo un problema al enviar los datos"}</div>}
+      {isLogin && <Login formRegistro={() => setIsLogin(false)} />}
+      {!isLogin && <Registro formLogin={() => setIsLogin(true)} />}
     </ModalWrapper>
   )
 };

@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route } from "react-router";
 import { Index } from "./paginas/Index";
 import { Crear } from "./paginas/Crear";
@@ -10,6 +9,7 @@ import { Body } from "./components/Body";
 import { PolosProvider } from "./state/polos/PolosProvider";
 import { EditarPoloProvider } from "./state/editar-polo/EditarPoloProvider";
 import { Polos } from "./paginas/Polos";
+import { AutenticacionProvider } from "./state/autenticacion/AutenticacionProvider";
 
 /**
  * El componente App sirve para navegar entre las páginas del proyecto
@@ -18,27 +18,32 @@ import { Polos } from "./paginas/Polos";
  *
  * Nota: El tipo de navegación usado implica que se necesita un servidor web
  * configurado para que se redirijan a la ruta base del proyecto las peticiones.
+ * Revisar la documentación de HashRouter para una alternativa:
+ * https://www.geeksforgeeks.org/hashrouter-in-react-router/
+ *
  */
 function App() {
   return (
     <BrowserRouter>
-      <PolosProvider>
-        <EditarPoloProvider>
-          <Body>
-            <Routes>
-              <Route index element={<Index />} />
-              <Route path="/artshop" element={<Artshop />} />
-              <Route path="/crear" element={<Crear />} />
-              <Route path="/editar" element={<Polos />} />
-              <Route path="/editar/:poloId" element={<Polos />} />
-              <Route path="/equipo" element={<Equipo />} />
-              <Route path="/nosotros" element={<Nosotros />} />
-            </Routes>
-          </Body>
-        </EditarPoloProvider>
-      </PolosProvider>
+      <AutenticacionProvider>
+        <PolosProvider>
+          <EditarPoloProvider>
+            <Body>
+              <Routes>
+                <Route index element={<Index />} />
+                <Route path="/artshop" element={<Artshop />} />
+                <Route path="/crear" element={<Crear />} />
+                <Route path="/editar" element={<Polos />} />
+                <Route path="/editar/:poloId" element={<Polos />} />
+                <Route path="/equipo" element={<Equipo />} />
+                <Route path="/nosotros" element={<Nosotros />} />
+              </Routes>
+            </Body>
+          </EditarPoloProvider>
+        </PolosProvider>
+      </AutenticacionProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

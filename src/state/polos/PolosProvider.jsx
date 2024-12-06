@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 import { PolosContext } from "./PolosContext";
-import { damePolosIniciales, excluirElemento } from '../utils/funciones'
+import { damePolosIniciales, excluirElemento } from "../utils/funciones";
 
 /**
  * Implementación de las variables globales concernientes a los polos de un usuario
@@ -13,7 +13,6 @@ export const PolosProvider = ({ children }) => {
   const [poloSeleccionado, seleccionarPolo] = useState(null);
 
   const agregarPolo = (polo) => {
-
     // Creamos un nuevo array, que incluye el nuevo elemento polo a agregar a nuestro listado
     // 1) No reusamos el array anterior "polos" que existe en memoria, porque no va a funcionar la "reactividad"
     // y no se va a producir un cambio en la interfaz.
@@ -45,12 +44,23 @@ export const PolosProvider = ({ children }) => {
     cambiarPolos((polosPrev) => [...excluirElemento(polosPrev, polo)]);
   };
 
+  const guardarPolos = () => {};
+
   // Todos los componentes react que se encuentren dentro del proveedor, tendrán acceso a estas variables
-  // y funciones, cuando pidan datos del contexto
-  // También es posible tener regiones con grupos de datos distintos, si tenemos múltiples instancias del proveedor.
+  // y funciones, cuando pidan datos del contexto. También es posible tener regiones con
+  // grupos de datos distintos, si tenemos múltiples instancias del proveedor (PolosProvider).
   return (
     <PolosContext.Provider
-      value={{ polos, poloSeleccionado, cambiarPolos, agregarPolo, actualizarPolo, borrarPolo, seleccionarPolo }}
+      value={{
+        polos,
+        poloSeleccionado,
+        cambiarPolos,
+        agregarPolo,
+        actualizarPolo,
+        borrarPolo,
+        seleccionarPolo,
+        guardarPolos,
+      }}
     >
       {children}
     </PolosContext.Provider>

@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router";
 
 import { useLocation } from "react-router-dom";
+import { AutenticacionContext } from "../state/autenticacion/AutenticacionContext";
 
 /**
  * El componente Cabecera sirve para mostrar el menú de navegación y la imagen banner de la página web
@@ -17,6 +19,14 @@ export const Cabecera = (props) => {
 
   const abrirModal = () => {
     props.cambiarModal(true);
+  };
+
+  const { usuario, salir } = useContext(AutenticacionContext);
+
+  console.log("Usuario actual", usuario);
+
+  const cerrarSesion = async () => {
+    await salir();
   };
 
   return (
@@ -79,14 +89,27 @@ export const Cabecera = (props) => {
           </li>
         </ul>
         <div className="acciones">
-          <div className="sesion">
-            <a href="#" id="loginBtn" onClick={abrirModal}>
-              Iniciar sesión
-            </a>
-            <a href="#" className="carrito">
+          {usuario && (
+            <div className="sesion">
+              Bienvenido de vuelta!
+              <br />
+              <strong>{usuario.email}</strong>
+              <br />
+              <a href="#" onClick={cerrarSesion}>
+                Cerrar sesión
+              </a>
+            </div>
+          )}
+          {!usuario && (
+            <div className="sesion">
+              <a href="#" id="loginBtn" onClick={abrirModal}>
+                Iniciar sesión
+              </a>
+              {/*<a href="#" className="carrito">
               <span className="contador">0</span>
-            </a>
-          </div>
+            </a>*/}
+            </div>
+          )}
         </div>
       </nav>
     </header>

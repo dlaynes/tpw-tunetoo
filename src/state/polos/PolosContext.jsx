@@ -10,5 +10,6 @@ export const PolosContext = createContext({
   agregarPolo: () => {},
   actualizarPolo: () => {},
   borrarPolo: () => {},
-  seleccionarPolo: () => {}
+  seleccionarPolo: () => {},
+  guardarPolos: () => {},
 });
