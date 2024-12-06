@@ -1,17 +1,16 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { v4 as uuidv4 } from "uuid";
 
 import { PolosContext } from "./PolosContext";
-
-import { excluirElemento } from '../utils/funciones'
+import { damePolosIniciales, excluirElemento } from '../utils/funciones'
 
 /**
  * Implementación de las variables globales concernientes a los polos de un usuario
  */
 export const PolosProvider = ({ children }) => {
   // Polos diseñados por el usuario
-  const [polos, cambiarPolos] = useState([]);
+  const [polos, cambiarPolos] = useState(damePolosIniciales);
+  const [poloSeleccionado, seleccionarPolo] = useState(null);
 
   const agregarPolo = (polo) => {
 
@@ -22,11 +21,6 @@ export const PolosProvider = ({ children }) => {
     // para evitar problemas con alguna ejecución concurrente que esté actualizando este contexto y para evitar problemas
     // con variables que no han sido todavía actualizadas por React en el ciclo actual en este contexto.
     cambiarPolos((polosPrev) => {
-      // Cuando creamos un nuevo polo, le asignamos un ID "aleatorio".
-      if(!polo.id){
-        polo.id = uuidv4();
-      }
-
       // añadimos los valores anteriores, y el nuevo polo agregado, dentro de un nuevo array
       // este nuevo array es utilizado para actualizar la variable polos
       return [...polosPrev, polo];
@@ -56,7 +50,7 @@ export const PolosProvider = ({ children }) => {
   // También es posible tener regiones con grupos de datos distintos, si tenemos múltiples instancias del proveedor.
   return (
     <PolosContext.Provider
-      value={{ polos, cambiarPolos, agregarPolo, actualizarPolo, borrarPolo }}
+      value={{ polos, poloSeleccionado, cambiarPolos, agregarPolo, actualizarPolo, borrarPolo, seleccionarPolo }}
     >
       {children}
     </PolosContext.Provider>

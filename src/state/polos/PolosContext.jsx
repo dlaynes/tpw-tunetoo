@@ -5,8 +5,10 @@ import { createContext } from "react";
  */
 export const PolosContext = createContext({
   polos: [],
+  poloSeleccionado: null,
   cambiarPolos: () => {},
   agregarPolo: () => {},
   actualizarPolo: () => {},
   borrarPolo: () => {},
+  seleccionarPolo: () => {}
 });

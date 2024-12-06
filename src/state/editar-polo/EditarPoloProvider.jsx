@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import { EditarPoloContext } from "./EditarPoloContext";
 
-import { crearCapa, excluirElemento } from "../utils/funciones";
-import { LIMITE_CAPAS, TIPO_CAPA } from "../utils/constantes";
+import { excluirElemento } from "../utils/funciones";
+import { LIMITE_CAPAS } from "../utils/constantes";
+import { PolosContext } from "../polos/PolosContext";
 
 /**
  * Implementación de las variables globales concernientes a la edición de un polo
@@ -15,20 +16,23 @@ import { LIMITE_CAPAS, TIPO_CAPA } from "../utils/constantes";
 export const EditarPoloProvider = ({ children }) => {
   // Polo sobre el cual se van a modificar las capas
   const [polo, cambiarPolo] = useState(null);
+  const { poloSeleccionado } = useContext(PolosContext);
 
   // Booleano usado para esconder los controles de la página mientras se genera la imagen exportada.
   const [imprimiendo, cambiarImprimiendo] = useState(false);
 
   // Capas del diseño del polo actual. Incluímos una capa de imagen de ejemplo.
-  const [capas, cambiarCapas] = useState([
-    crearCapa({
-      tipo: TIPO_CAPA.imagen,
-      url: '/images/disenador/gallery/iconpacks/christmas-wreath-13032.png'
-    }, 0)
-  ]);
+  const [capas, cambiarCapas] = useState([]);
 
   // Capa seleccionada
   const [capaActual, seleccionarCapa] = useState(null);
+
+  // Detección del polo Actual
+  useEffect(() => {
+    if(poloSeleccionado?.capas){
+      cambiarCapas(poloSeleccionado.capas);
+    }
+  }, [poloSeleccionado]);
 
   const agregarCapa = (capa) => {
     cambiarCapas((capasPrev) => {

@@ -9,8 +9,20 @@ export const LIMITE_CAPAS = 10;
 
 export const NIVEL_SELECCIONADO = 50;
 
+/** Plantilla base para la creación de polos */
+export const POLO_BASE = {
+  id: "",
+  nombre: "",
+  precio: 0,
+  capas: [],
+  ultimaActualizacion: null,
+};
+
+export const ID_POLO_NUEVO = 'nuevo-polo';
+
 /** Plantilla base para la creación de capas */
 export const CAPA_BASE = {
+  id: "",
   tipo: TIPO_CAPA.texto,
   seleccionada: false,
   zIndex: 1,

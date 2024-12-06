@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { NavLink } from "react-router";
 
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 
 /**
  * El componente Cabecera sirve para mostrar el menú de navegación y la imagen banner de la página web
@@ -13,7 +13,6 @@ import { useLocation } from 'react-router-dom'
  * @returns
  */
 export const Cabecera = (props) => {
-
   let location = useLocation();
 
   const abrirModal = () => {
@@ -21,7 +20,12 @@ export const Cabecera = (props) => {
   };
 
   return (
-    <header className={"cabecera-" + (location.pathname.indexOf('editar') === -1 ? "regular" : "diseno")}>
+    <header
+      className={
+        "cabecera-" +
+        (location.pathname.indexOf("editar") === -1 ? "regular" : "diseno")
+      }
+    >
       <nav>
         <div className="logo">
           <h1>Tunetoo</h1>
@@ -31,9 +35,7 @@ export const Cabecera = (props) => {
           <li>
             <NavLink
               to="/"
-              className={({ isActive }) =>
-                isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               INICIO
             </NavLink>
@@ -41,9 +43,7 @@ export const Cabecera = (props) => {
           <li>
             <NavLink
               to="/crear"
-              className={({ isActive }) =>
-                isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               CREAR <span>todos tus deseos</span>
             </NavLink>
@@ -51,9 +51,7 @@ export const Cabecera = (props) => {
           <li>
             <NavLink
               to="/artshop"
-              className={({ isActive }) =>
-                isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               ART SHOP <span>ideas de regalo</span>
             </NavLink>
@@ -61,9 +59,7 @@ export const Cabecera = (props) => {
           <li>
             <NavLink
               to="/nosotros"
-              className={({ isActive }) =>
-                isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               NOSOTROS <span>nuestra empresa</span>
             </NavLink>
@@ -71,21 +67,21 @@ export const Cabecera = (props) => {
           <li>
             <NavLink
               to="/equipo"
-              className={({ isActive }) =>
-                isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               EQUIPO DE TRABAJO <span>Staff</span>
             </NavLink>
           </li>
         </ul>
         <div className="acciones">
-            <div className="sesion">
-                <a href="#" id="loginBtn" onClick={abrirModal}>Iniciar sesión</a>
-                <a href="#" className="carrito">
-                    <span className="contador">0</span>
-                </a>
-            </div>
+          <div className="sesion">
+            <a href="#" id="loginBtn" onClick={abrirModal}>
+              Iniciar sesión
+            </a>
+            <a href="#" className="carrito">
+              <span className="contador">0</span>
+            </a>
+          </div>
         </div>
       </nav>
     </header>
@@ -93,5 +89,10 @@ export const Cabecera = (props) => {
 };
 
 Cabecera.propTypes = {
-  cambiarModal: PropTypes.func
+  cambiarModal: PropTypes.func,
 };
+
+// Nota:
+// Importamos la librería PropTypes, para generar advertencias cuando se estén pasando parámetros incorrectos a un componente.
+// En un entorno Typescript en vez de eso, se suelen usar declaración de tipos o clases, para restringir los valores posibles
+// de los parámetros. En un proyecto vite-React, estas advertencias suelen aparecer mientras se edita el código fuente

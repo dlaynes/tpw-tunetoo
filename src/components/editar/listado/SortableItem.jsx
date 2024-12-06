@@ -11,9 +11,9 @@ import { CSS } from "@dnd-kit/utilities";
  *
  * Parámetros externos (props)
  * props.capa Es una de las capas agregadas al diseño actual
- * props.editar accion de editar una capa
- * props.borrar accion de borrar una capa
- * props.seleccionar accion de seleccionar una capa
+ * props.borrar Función que es llamada al momento de borrar una capa
+ * props.seleccionar Función que es llamada al momento de seleccionar una capa
+ * props.seleccionada Indica si la capa se encuentra seleccionada o no
  *
  * @param {*} param0
  * @returns
