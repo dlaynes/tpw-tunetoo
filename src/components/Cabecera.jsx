@@ -36,6 +36,7 @@ export const Cabecera = (props) => {
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? "active" : "")}
+              viewTransition
             >
               INICIO
             </NavLink>
@@ -44,6 +45,7 @@ export const Cabecera = (props) => {
             <NavLink
               to="/crear"
               className={({ isActive }) => (isActive ? "active" : "")}
+              viewTransition
             >
               CREAR <span>todos tus deseos</span>
             </NavLink>
@@ -52,6 +54,7 @@ export const Cabecera = (props) => {
             <NavLink
               to="/artshop"
               className={({ isActive }) => (isActive ? "active" : "")}
+              viewTransition
             >
               ART SHOP <span>ideas de regalo</span>
             </NavLink>
@@ -60,6 +63,7 @@ export const Cabecera = (props) => {
             <NavLink
               to="/nosotros"
               className={({ isActive }) => (isActive ? "active" : "")}
+              viewTransition
             >
               NOSOTROS <span>nuestra empresa</span>
             </NavLink>
@@ -68,6 +72,7 @@ export const Cabecera = (props) => {
             <NavLink
               to="/equipo"
               className={({ isActive }) => (isActive ? "active" : "")}
+              viewTransition
             >
               EQUIPO DE TRABAJO <span>Staff</span>
             </NavLink>

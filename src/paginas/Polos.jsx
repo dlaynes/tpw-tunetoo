@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { CapaActual } from "../components/editar/CapaActual";
 import { Capas } from "../components/editar/Capas";
@@ -22,17 +22,30 @@ import { ID_POLO_NUEVO } from '../state/utils/constantes';
 export const Polos = () => {
 
   let params = useParams();
+  let navigate = useNavigate();
 
   const { polos, seleccionarPolo } = useContext(PolosContext);
 
+  /**
+   * La página de edición de polos es dibujada cuando se acceden a dos rutas:
+   * /editar/
+   * /editar/:poloId
+   * Donde poloId corresponde al id de un polo
+   * Cuando haya algún cambio en la ruta, entonces cargaremos el polo del usuario
+   * si este existe, o un polo predefinido.
+   * Si el id es inválido, redigimos a la página de Editar nuevo polo
+   */
   useEffect(() => {
     const id = params.poloId || ID_POLO_NUEVO;
     const polo = polos.find(it => it.id === id);
     if(polo){
       seleccionarPolo(polo);
+    } else {
+      return navigate("/editar");
     }
-  }, [params, polos, seleccionarPolo]);
+  }, [params, polos, seleccionarPolo, navigate]);
 
+  // Controles que muestran los popups de creación de capas
   const [mostrarGaleria, setMostrarGaleria] = useState(false);
   const [mostrarNuevaCapa, setMostrarNuevaCapa] = useState(false);
   const [mostrarMisFotos, setMostrarMisFotos] = useState(false);

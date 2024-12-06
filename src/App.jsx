@@ -15,6 +15,9 @@ import { Polos } from "./paginas/Polos";
  * El componente App sirve para navegar entre las páginas del proyecto
  * Para el efecto, se definen rutas de navegación, y cada ruta se asocia a un componente respectivo.
  * Asimismo, se encarga de poner a disposición las variables y funciones globales disponibles en los proveedores de contexto (Providers)
+ *
+ * Nota: El tipo de navegación usado implica que se necesita un servidor web
+ * configurado para que se redirijan a la ruta base del proyecto las peticiones.
  */
 function App() {
   return (

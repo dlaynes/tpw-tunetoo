@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4; /* Color de fondo del sitio */
+  background: linear-gradient(90deg, rgba(9,9,121,0) 0%, rgba(0,212,255,0.14609593837535018) 100%);
   color: #333; /* Color del texto */
 }
 
@@ -103,6 +104,7 @@ footer {
   flex-wrap: wrap; /* Permite que los elementos se envuelvan */
   gap: 10px; /* Espaciado entre las imágenes */
   justify-content: center; /* Centra las imágenes */
+  animation: fadeInPages 1s ease-in-out;
 }
 
 .gallery img {
@@ -121,6 +123,7 @@ footer {
   display: flex;
   flex-direction: column; /* Organiza los elementos en una columna */
   align-items: center; /* Centra los elementos horizontalmente */
+  animation: fadeInPages 1s ease-in-out;
 }
 
 .org-chart .level {
@@ -142,6 +145,7 @@ footer {
 /* Estilos de la Sección de Productos */
 .productos, .personalizacion {
   text-align: center; /* Centra el texto */
+  animation: fadeInPages 1s ease-in-out;
 }
 
 .productos h2, .personalizacion h2 {
@@ -152,6 +156,20 @@ footer {
 .productos p, .personalizacion p {
   font-size: 16px; /* Tamaño de la fuente de los párrafos */
   margin-bottom: 20px; /* Espaciado inferior de los párrafos */
+}
+
+.personalizacion a {
+  background-color: #333;
+  color: white;
+  border-radius: 1.5rem;
+  height: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  font-weight: bold;
+  line-height: 3;
+  margin-top: 1rem;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .galeria {
@@ -221,7 +239,7 @@ header {
   margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeInPages 1s ease-in-out;
 }
 
 .nosotros h2 {
@@ -239,7 +257,7 @@ header {
 }
 
 /* Animation */
-@keyframes fadeIn {
+@keyframes fadeInPages {
   from {
       opacity: 0;
       transform: translateY(20px);

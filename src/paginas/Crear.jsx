@@ -30,7 +30,7 @@ export const Crear = () => {
         </div>
       </div>
       <br />
-      <Link to='/editar'>Crear mi propio diseño</Link>
+      <Link to='/editar' viewTransition>Crear mi propio diseño</Link>
     </section>
   )
 };
