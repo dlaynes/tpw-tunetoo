@@ -22,9 +22,9 @@ export function colorAleatorio() {
 /**
  * Función que inicializa una capa nueva, usando los datos provistos
  *
- * @param {Record<string, any>} capa
+ * @param {Object} capa
  * @param {number} desplazamiento Representa la posición actual
- * @returns {Record<string, any>}
+ * @returns {Object}
  */
 export function crearCapa(capa, desplazamiento) {
   const obj = Object.assign({}, CAPA_BASE, {
@@ -33,7 +33,7 @@ export function crearCapa(capa, desplazamiento) {
     top: CAPA_BASE.top + 10 * desplazamiento,
     left: CAPA_BASE.left + 10 * desplazamiento,
   });
-  if(!obj.id){
+  if (!obj.id) {
     // Cuando creamos una nueva capa de polo, le asignamos un ID "aleatorio".
     obj.id = uuidv4();
   }
@@ -46,11 +46,11 @@ export function crearCapa(capa, desplazamiento) {
  * @param {*} polo
  * @returns
  */
-export function crearPolo(polo={}) {
+export function crearPolo(polo = {}) {
   const obj = Object.assign({}, POLO_BASE, {
     ...polo,
   });
-  if(!obj.id){
+  if (!obj.id) {
     // Cuando creamos un nuevo polo, le asignamos un ID "aleatorio".
     obj.id = uuidv4();
   }
@@ -69,24 +69,9 @@ export const excluirElemento = (arrPrev, item) => {
   return arrPrev.filter((it) => it.id !== item.id);
 };
 // Notas:
-// Se usa una de las definiciones de objetos de Typescript: Record<string, any> para ser más riguroso con la definición de la función.
+// Se usa una de las definiciones de objetos de Typescript: Array<Record<string, any>> para ser más riguroso con la definición de la función.
 // En un proyecto Javascript no es necesario, y basta con "Array" para definir el tipo del parámetro en la documentación de la función.
 // En un proyecto Typescript, normalmente se utilizaría el tipo (o clase) del objeto, en vez de Record<string, any>
-
-/**
- * Utilitario que activa el valor de la propiedad seleccionada en un elemento ubicado en el array
- * de capas, y desactiva el valor en el resto.
- *
- * @param {Array<Record<string, any>>} arrPrev
- * @param {Record<string, any>} item
- *
- * @returns {Array<Record<string, any>>}
- */
-export const cambiarEstadoSeleccion = (capasPrev, capa) => {
-  return capasPrev.map((it) =>
-    Object.assign({}, it, { seleccionada: it.id === capa.id })
-  );
-};
 
 /**
  * Color de fondo de una capa seleccionada (o no seleccionada) en el diseñador
@@ -108,23 +93,34 @@ export const colorFondo = (backgroundColor, seleccionada, imprimiendo) => {
 };
 
 /**
+ * Leemos los polos guardados en localStorage. Si no hay datos, generamos el polo por defecto.
  *
- * @returns
+ * @returns {Array}
  */
 export const damePolosIniciales = () => {
-  const polos = readData('polos', []);
-  if(!polos.length){
-
-    const capas = [
-      crearCapa({
-        tipo: TIPO_CAPA.imagen,
-        url: '/images/disenador/gallery/iconpacks/christmas-wreath-13032.png'
-      }, 0)
-    ];
-
-    return [
-      crearPolo({id: ID_POLO_NUEVO, capas: capas})
-    ];
+  const polos = readData("polos", []);
+  // Por el momento no se maneja el caso de que alguien haya borrado el polo por defecto
+  // de su listado de polos.
+  if (!polos.length) {
+    return [poloDeEjemplo()];
   }
   return polos;
+};
+
+/**
+ * Información que es usada para crear un polo por defecto, o limpiar los datos ya existentes del polo base.
+ *
+ * @returns {Object}
+ */
+export const poloDeEjemplo = () => {
+  const capas = [
+    crearCapa(
+      {
+        tipo: TIPO_CAPA.imagen,
+        url: "/images/disenador/gallery/iconpacks/christmas-wreath-13032.png",
+      },
+      0
+    ),
+  ];
+  return crearPolo({ id: ID_POLO_NUEVO, capas: capas });
 };

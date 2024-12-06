@@ -7,6 +7,8 @@ export const TIPO_CAPA = {
 
 export const LIMITE_CAPAS = 10;
 
+export const LIMITE_POLOS = 11;
+
 export const NIVEL_SELECCIONADO = 50;
 
 /** Plantilla base para la creación de polos */
@@ -24,7 +26,6 @@ export const ID_POLO_NUEVO = 'nuevo-polo';
 export const CAPA_BASE = {
   id: "",
   tipo: TIPO_CAPA.texto,
-  seleccionada: false,
   zIndex: 1,
   top: 50,
   left: 50,
