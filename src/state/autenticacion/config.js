@@ -5,12 +5,12 @@ import { getAuth } from "firebase/auth";
 // En el panel de control de Firebase podremos pedir nuestras credenciales
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB_mlDsykhicQXgZ4HhvXiK48gWxhtZXS8",
-  authDomain: "tpw-portal.firebaseapp.com",
-  projectId: "tpw-portal",
-  storageBucket: "tpw-portal.firebasestorage.app",
-  messagingSenderId: "410241829789",
-  appId: "1:410241829789:web:5decfdd1d0c0cb24bc7d74",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
@@ -21,4 +21,4 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export default app;
 
-// Similar a Firebase, existen otras alternativas de herramientas de alojamiento y desarrollo en la nube, como Supabase y AppWrite.
+// Similares a Firebase, existen otras alternativas de herramientas de alojamiento y desarrollo en la nube, como Supabase y AppWrite.

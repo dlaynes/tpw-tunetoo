@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ModalWrapper } from '../ModalWrapper';
@@ -20,10 +20,12 @@ export const ModalLogin = (props) => {
   const [isLogin, setIsLogin] = useState(true);
   const { usuario, error } = useContext(AutenticacionContext);
 
-  // En caso se logre iniciar sesión a traves de alguno de los formularios, cerramos el modal
-  if(usuario){
-    props.cambiarModal(false);
-  }
+  useEffect(()=>{
+    // En caso se logre iniciar sesión a traves de alguno de los formularios, cerramos el modal
+    if(usuario){
+      props.cambiarModal(false);
+    }
+  }, [usuario, props]);
 
   return (
     <ModalWrapper {...props}>
