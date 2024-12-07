@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 
 // Para poder implementar el inicio de sesión de los usuarios, se debe configurar el acceso a la API
 // En el panel de control de Firebase podremos pedir nuestras credenciales
+// Se deben agregar las claves VITE_FIREBASE_* correspondientes al archivo .env
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,

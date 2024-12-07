@@ -124,6 +124,8 @@ footer {
   flex-direction: column; /* Organiza los elementos en una columna */
   align-items: center; /* Centra los elementos horizontalmente */
   animation: fadeInPages 1s ease-in-out;
+  background: url(/images/pngwing.office.png) no-repeat 20% center;
+  background-size: 30%;
 }
 
 .org-chart .level {
@@ -133,13 +135,21 @@ footer {
 }
 
 .org-chart .member {
-  background-color: #fff; /* Color de fondo de los miembros */
+  background-color: #111; /* Color de fondo de los miembros */
+  color: #fff;
   border: 1px solid #ccc; /* Borde de los miembros */
   border-radius: 5px; /* Bordes redondeados */
-  padding: 10px; /* Espaciado interno de los miembros */
+  padding: 10px 20px; /* Espaciado interno de los miembros */
   margin: 0 10px; /* Espaciado horizontal entre los miembros */
   text-align: center; /* Centra el texto de los miembros */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para los miembros */
+  font-size: 80%;
+}
+.org-chart .member img {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  object-fit: contain;
 }
 
 /* Estilos de la Sección de Productos */
