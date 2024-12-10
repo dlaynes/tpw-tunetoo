@@ -58,7 +58,7 @@ export function crearPolo(polo = {}) {
 }
 
 /**
- * Utilitario que devuelve un array, en donde no estará presente el item indicado
+ * Utilitario que devuelve un array, en donde no estará presente el item indicado, filtrando por id
  *
  * @param {Array<Record<string, any>>} arrPrev
  * @param {Record<string, any>} item
@@ -123,4 +123,23 @@ export const poloDeEjemplo = () => {
     ),
   ];
   return crearPolo({ id: ID_POLO_NUEVO, capas: capas });
+};
+
+/**
+ * Esta función se usa para copiar un polo, si se trata de un polo sin guardar,
+ * Y agregarlo a la lista de polos. Se requiere que la id del polo haya cambiado.
+ * El polo por defecto es limpiado o "reiniciado".
+ *
+ * @param {*} polos
+ * @param {*} poloNuevo
+ * @returns
+ */
+export const copiarYRenovarPoloInicial = (polos, poloNuevo) => {
+  if(poloNuevo?.id === ID_POLO_NUEVO){
+    console.error("Es necesario cambiar la ID del polo a guardar", poloNuevo);
+    return polos;
+  }
+  const poloPorDefecto = poloDeEjemplo();
+  const nuevosPolos = polos.push(poloNuevo);
+  return [...excluirElemento(nuevosPolos, poloPorDefecto), poloPorDefecto];
 };

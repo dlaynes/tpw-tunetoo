@@ -168,7 +168,7 @@ footer {
   margin-bottom: 20px; /* Espaciado inferior de los párrafos */
 }
 
-.personalizacion a {
+.action-button {
   background-color: #333;
   color: white;
   border-radius: 1.5rem;
