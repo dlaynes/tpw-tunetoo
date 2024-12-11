@@ -58,6 +58,15 @@ export const Cabecera = (props) => {
               CREAR <span>todos tus deseos</span>
             </NavLink>
           </li>
+          {!!usuario && <li>
+            <NavLink
+              to="/disenos"
+              className={({ isActive }) => (isActive ? "active" : "")}
+              viewTransition
+            >
+              PORTAFOLIO <span>mis diseños</span>
+            </NavLink>
+          </li>}
           <li>
             <NavLink
               to="/artshop"
@@ -82,12 +91,12 @@ export const Cabecera = (props) => {
               className={({ isActive }) => (isActive ? "active" : "")}
               viewTransition
             >
-              EQUIPO DE TRABAJO <span>Staff</span>
+              STAFF <span>Equipo de trabajo</span>
             </NavLink>
           </li>
         </ul>
         <div className="acciones">
-          {usuario && (
+          {!!usuario && (
             <div className="sesion">
               Bienvenido de vuelta!
               <br />

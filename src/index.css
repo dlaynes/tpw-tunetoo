@@ -119,16 +119,19 @@ footer {
 }
 
 /* Estilos del Organigrama */
-.org-chart {
+.org-chart, .disenos {
   display: flex;
   flex-direction: column; /* Organiza los elementos en una columna */
   align-items: center; /* Centra los elementos horizontalmente */
   animation: fadeInPages 1s ease-in-out;
+
+}
+.org-chart {
   background: url(/images/pngwing.office.png) no-repeat 20% center;
   background-size: 30%;
 }
 
-.org-chart .level {
+.org-chart .level, .disenos .level {
   display: flex; /* Organiza los elementos en una fila */
   justify-content: center; /* Centra los elementos */
   margin: 20px 0; /* Espaciado vertical entre los niveles */

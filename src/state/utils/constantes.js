@@ -11,6 +11,8 @@ export const LIMITE_POLOS = 11;
 
 export const NIVEL_SELECCIONADO = 50;
 
+export const POLOS_CLAVE_STORAGE = "polos";
+
 /** Plantilla base para la creación de polos */
 export const POLO_BASE = {
   id: "",

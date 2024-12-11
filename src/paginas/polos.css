@@ -211,3 +211,26 @@
   height: 300px;
   overflow-y: auto;
 }
+
+
+.capas-inner-mini {
+  display: flex;
+  justify-content: center;
+  width: 135.5px;
+  height: 155px;
+  background: center center no-repeat url('/images/disenador/t-shirt.png');
+  background-size: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.capas-inner-mini .capas-limits {
+  margin-top: 20px;
+  width: 80px;
+  height: 120px;
+  position: relative;
+}
+.diseno-single {
+  width: 220px;
+  text-align: center;
+}

@@ -10,6 +10,7 @@ import { PolosProvider } from "./state/polos/PolosProvider";
 import { EditarPoloProvider } from "./state/editar-polo/EditarPoloProvider";
 import { Polos } from "./paginas/Polos";
 import { AutenticacionProvider } from "./state/autenticacion/AutenticacionProvider";
+import { Disenos } from "./paginas/Disenos";
 
 /**
  * El componente App sirve para navegar entre las páginas del proyecto
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/crear" element={<Crear />} />
                 <Route path="/editar" element={<Polos />} />
                 <Route path="/editar/:poloId" element={<Polos />} />
+                <Route path="/disenos" element={<Disenos />} />
                 <Route path="/equipo" element={<Equipo />} />
                 <Route path="/nosotros" element={<Nosotros />} />
               </Routes>

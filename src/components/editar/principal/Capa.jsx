@@ -14,12 +14,15 @@ import { CapaTexto } from "./CapaTexto";
  * Parámetros externos (props)
  * props.capa Capa a ser dibujada
  * props.pos Posición actual de la capa en el array de capas
+ * props.seleccionada: Define si la capa tiene el foco de atención en el diseñador de polos
+ * props.imprimiendo: Si es verdadero, escondemos algunos elementos
+ * props.disenador: Si nos encontramos en modo edición de polos
  *
  * @param {*} param0
  * @returns
  */
 
-export const Capa = ({ capa, pos, seleccionada, imprimiendo }) => {
+export const Capa = ({ capa, pos, seleccionada = false, imprimiendo=false, disenador=true }) => {
   const { actualizarCapa, seleccionarCapa } = useContext(EditarPoloContext);
 
   // Escuchamos el evento Drag (arrastre) del ResizableBox
@@ -57,20 +60,20 @@ export const Capa = ({ capa, pos, seleccionada, imprimiendo }) => {
   return (
     <div
       className={seleccionada ? "capa-actual" : ""}
-      onClick={() => seleccionarCapa(capa)}
+      onClick={() => disenador && seleccionarCapa(capa)}
       style={{ zIndex: nivel, position: 'relative' }}
       key={"capa-" + capa.id + "-" + nivel}
     >
       {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && (
-        <CapaImagen  capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
+        <CapaImagen disenador={disenador} capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
       )}
       {capa.tipo === TIPO_CAPA.texto && (
-        <CapaTexto  capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
+        <CapaTexto disenador={disenador} capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
       )}
       {/* El componente ResizableBox realiza las operaciones de arrastre, rotación y variación de tamaño.
       Debido a que no permite tener contenido anidado, entonces replicamos sus reglas CSS en la capa actual ante cualquier cambio.
        */}
-      <ResizableBox
+      {disenador && <ResizableBox
         style={{zIndex: nivel, visibility: seleccionada ? "visible" : "hidden"}}
         className="capa"
         width={capa.width}
@@ -85,7 +88,7 @@ export const Capa = ({ capa, pos, seleccionada, imprimiendo }) => {
         onDrag={onDragHandler}
         resizable={seleccionada}
         onResize={onResizeHandler}
-      />
+      />}
     </div>
   );
 };
@@ -108,5 +111,6 @@ Capa.propTypes = {
   }),
   pos: PropTypes.number,
   seleccionada: PropTypes.bool,
-  imprimiendo: PropTypes.bool
+  imprimiendo: PropTypes.bool,
+  disenador: PropTypes.bool
 };

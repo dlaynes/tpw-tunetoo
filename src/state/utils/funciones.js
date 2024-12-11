@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-import { CAPA_BASE, ID_POLO_NUEVO, POLO_BASE, TIPO_CAPA } from "./constantes";
+import { CAPA_BASE, ID_POLO_NUEVO, POLO_BASE, POLOS_CLAVE_STORAGE, TIPO_CAPA } from "./constantes";
 import { readData } from "./encripcion";
 
 /**
@@ -98,7 +98,7 @@ export const colorFondo = (backgroundColor, seleccionada, imprimiendo) => {
  * @returns {Array}
  */
 export const damePolosIniciales = () => {
-  const polos = readData("polos", []);
+  const polos = readData(POLOS_CLAVE_STORAGE, []);
   // Por el momento no se maneja el caso de que alguien haya borrado el polo por defecto
   // de su listado de polos.
   if (!polos.length) {
@@ -130,8 +130,8 @@ export const poloDeEjemplo = () => {
  * Y agregarlo a la lista de polos. Se requiere que la id del polo haya cambiado.
  * El polo por defecto es limpiado o "reiniciado".
  *
- * @param {*} polos
- * @param {*} poloNuevo
+ * @param {Array} polos
+ * @param {Object} poloNuevo
  * @returns
  */
 export const copiarYRenovarPoloInicial = (polos, poloNuevo) => {
@@ -140,6 +140,6 @@ export const copiarYRenovarPoloInicial = (polos, poloNuevo) => {
     return polos;
   }
   const poloPorDefecto = poloDeEjemplo();
-  const nuevosPolos = polos.push(poloNuevo);
-  return [...excluirElemento(nuevosPolos, poloPorDefecto), poloPorDefecto];
+  polos.push(poloNuevo);
+  return [...excluirElemento(polos, poloPorDefecto), poloPorDefecto];
 };

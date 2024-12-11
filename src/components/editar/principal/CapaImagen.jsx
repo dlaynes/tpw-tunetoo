@@ -9,17 +9,18 @@ import { colorFondo } from "../../../state/utils/funciones";
  * @returns
  */
 
-export const CapaImagen = ({ capa, seleccionada, imprimiendo }) => {
+export const CapaImagen = ({ capa, seleccionada, imprimiendo, disenador }) => {
   const bgColor = colorFondo(capa.backgroundColor, seleccionada, imprimiendo);
+  const factor = disenador ? 1 : 4;
 
   return (
     <div
       className="shadow shadow-image"
       style={{
-        left: capa.left,
-        top: capa.top,
-        width: capa.width,
-        height: capa.height,
+        left: capa.left/factor,
+        top: capa.top/factor,
+        width: capa.width/factor,
+        height: capa.height/factor,
         transform: "rotate(" + capa.rotationDeg + "deg)",
         backgroundColor: bgColor,
       }}
@@ -44,5 +45,6 @@ CapaImagen.propTypes = {
     backgroundColor: PropTypes.string,
   }),
   seleccionada: PropTypes.bool,
-  imprimiendo: PropTypes.bool
+  imprimiendo: PropTypes.bool,
+  disenador: PropTypes.bool,
 };

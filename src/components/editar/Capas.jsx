@@ -9,7 +9,10 @@ import { EditarPoloContext } from "../../state/editar-polo/EditarPoloContext";
 import { Capa } from "./principal/Capa";
 import { ID_POLO_NUEVO, LIMITE_POLOS } from "../../state/utils/constantes";
 import { storeData } from "../../state/utils/encripcion";
-import { copiarYRenovarPoloInicial, excluirElemento } from "../../state/utils/funciones";
+import {
+  copiarYRenovarPoloInicial,
+  excluirElemento,
+} from "../../state/utils/funciones";
 
 /**
  * El componente Capas se encarga de mostrar el editor de diseño de un polo.
@@ -28,23 +31,30 @@ export const Capas = () => {
 
   const guardar = async () => {
     if (polos.length >= LIMITE_POLOS) {
-      alert("Has llegado al límite de polos, no es posible crear uno nuevo");
+      alert(
+        `Has llegado al límite de polos (${LIMITE_POLOS}), no es posible crear uno nuevo`
+      );
       return;
     }
-    let poloActual = {...poloSeleccionado, capas: capas};
-
-    actualizarPolo(poloActual);
+    let poloActual = {
+      ...poloSeleccionado,
+      capas: capas,
+      ultimaActualizacion: new Date().toISOString(),
+    };
 
     // es necesario usar un clon del array polos para guardar en el disco, porque React actualiza
     // los datos de forma asíncrona.
-    if(poloActual?.id === ID_POLO_NUEVO){
+    if (poloActual?.id === ID_POLO_NUEVO) {
       poloActual.id = uuidv4();
-      storeData('polos', copiarYRenovarPoloInicial(polos, poloActual));
+
+      storeData("polos", copiarYRenovarPoloInicial(polos, poloActual));
       // TODO: mostrar una alerta que no interrumpa la navegación
-      await navigate("/editar/"+poloActual.id);
+      actualizarPolo(poloActual);
+      await navigate("/editar/" + poloActual.id);
     } else {
+      actualizarPolo(poloActual);
       // TODO: mostrar una alerta
-      storeData('polos', [...excluirElemento(polos, poloActual), poloActual]);
+      storeData("polos", [...excluirElemento(polos, poloActual), poloActual]);
     }
   };
 

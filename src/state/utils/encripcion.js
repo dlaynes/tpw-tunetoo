@@ -5,6 +5,8 @@ import CryptoJS from "crypto-js";
 // ya que estamos trabajando de lado del navegador web, cualquiera puede leer el salt resultante y esta
 // técnica de esconder el salt mediante import.meta.env o similar solo tiene eficacia en aplicaciones de servidor.
 
+// Ver: sessionStorage
+
 const appSalt =
   import.meta.env.VITE_ENCRYPTION_SALT ||
   "20ac7730-ae62-41b7-89ab-1d772e716344";
@@ -34,7 +36,12 @@ export const decrypt = (ciphertext, salt) => {
 // pasando en el proceso por la capa de encriptado y desencriptado
 
 export const storeData = (key, data) => {
-  localStorage.setItem(PREFIX + key, encrypt(data, appSalt));
+  try {
+    const encrypted = encrypt(data, appSalt);
+    localStorage.setItem(PREFIX + key, encrypted);
+  } catch(e){
+    console.error("Se produjo un error al guardar en localStorage", e)
+  }
 };
 
 export const readData = (key, defaultValue=null) => {
