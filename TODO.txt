@@ -1,0 +1,5 @@
+- Investigar que mejoras ofrece reemplazar la librería DND-Kit por react-dnd
+- Usar React Query Firebase dentro del contexto de autenticación
+- Asignarle títulos a las capas
+- Permitir editar una capa después de haber sido creada
+- Reemplazar el componente de carga de archivos, por uno compatible con React 18
