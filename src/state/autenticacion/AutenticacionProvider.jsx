@@ -88,7 +88,7 @@ export const AutenticacionProvider = ({ children }) => {
 
 /*
 Nota: ya que estamos usando Firebase y React, sería factible reemplazar las llamadas a los servicios de login
-con la librería React Query Firebase, con mejor control sobre las peticiones http.
+con la librería React Query Firebase, que tiene mejor control sobre las peticiones http.
 
 https://react-query-firebase.invertase.dev/
  */
