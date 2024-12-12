@@ -34,7 +34,7 @@ export const Disenos = () => {
             </div>
           </div>
           <p>{it.titulo || 'Sin título'}</p>
-          <p>Fecha: {(new Date(it.ultimaActualizacion)).toString()}</p>
+          <p><span title="Última actualización">{(new Date(it.ultimaActualizacion)).toLocaleString()}</span></p>
           <Link to={"/editar/"+it.id}>Editar</Link>
         </div>)}
       </div>}

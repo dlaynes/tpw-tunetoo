@@ -274,7 +274,7 @@ header {
   margin-right: auto;
 }
 
-.nosotros .n2 {
+.nosotros p:nth-child(even)  {
   flex-direction: row-reverse;
 }
 
@@ -285,11 +285,11 @@ header {
   margin-bottom: 10px;
 }
 
-.nosotros .n1 img {
+.nosotros p:nth-child(odd) img {
   margin-left: 2rem;
 }
 
-.nosotros .n2 img {
+.nosotros p:nth-child(even) img {
   margin-right: 2rem;
 }
 
@@ -304,7 +304,6 @@ header {
       transform: translateY(0);
   }
 }
-
 
 /* Estilos para la ventana emergente */
 .modal {
