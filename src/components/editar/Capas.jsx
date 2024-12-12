@@ -1,6 +1,7 @@
 import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { NotificationManager } from "react-notifications";
 
 import { exportComponentAsPNG } from "react-component-export-image";
 
@@ -31,8 +32,10 @@ export const Capas = () => {
 
   const guardar = async () => {
     if (polos.length >= LIMITE_POLOS) {
-      alert(
-        `Has llegado al límite de polos (${LIMITE_POLOS}), no es posible crear uno nuevo`
+      NotificationManager.warning(
+        `Has llegado al límite de polos (${LIMITE_POLOS}), no es posible crear uno nuevo`,
+        "Hubo un problema",
+        5000
       );
       return;
     }
@@ -48,13 +51,17 @@ export const Capas = () => {
       poloActual.id = uuidv4();
 
       storeData("polos", copiarYRenovarPoloInicial(polos, poloActual));
-      // TODO: mostrar una alerta que no interrumpa la navegación
       actualizarPolo(poloActual);
       await navigate("/editar/" + poloActual.id);
+      NotificationManager.success("¡El polo ha sido creado!", "Éxito", 5000);
     } else {
       actualizarPolo(poloActual);
-      // TODO: mostrar una alerta
       storeData("polos", [...excluirElemento(polos, poloActual), poloActual]);
+      NotificationManager.success(
+        "¡El polo ha sido actualizado!",
+        "Éxito",
+        5000
+      );
     }
   };
 

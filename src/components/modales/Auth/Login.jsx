@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
+import { NotificationManager } from "react-notifications";
 import { AutenticacionContext } from "../../../state/autenticacion/AutenticacionContext";
 
 export const Login = ({ formRegistro }) => {
@@ -9,7 +10,7 @@ export const Login = ({ formRegistro }) => {
 
   const submit = async () => {
     if (!email || !password) {
-      alert("Ingrese un correo y una contraseña");
+      NotificationManager.warning("Ingrese un correo y una contraseña", 'Hubo un problema', 5000);
       return;
     }
     await ingresar(email, password);
@@ -46,7 +47,7 @@ export const Login = ({ formRegistro }) => {
       </form>
       <br />
       <p style={{ textAlign: "center" }}>
-        No tienes una cuenta?{" "}
+        ¿No tienes una cuenta?{" "}
         <a href="#" onClick={() => formRegistro()}>
           Regístrate
         </a>

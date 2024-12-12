@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { AutenticacionContext } from "../../../state/autenticacion/AutenticacionContext";
+import { NotificationManager } from "react-notifications";
 
 export const Registro = ({ formLogin }) => {
   const [email, setEmail] = useState("");
@@ -10,11 +11,11 @@ export const Registro = ({ formLogin }) => {
 
   const submit = async () => {
     if (!email || !password) {
-      alert("Ingrese un correo y una contraseña");
+      NotificationManager.warning("Ingrese un correo y una contraseña", 'Hubo un problema', 5000);
       return;
     }
     if (password !== passwordConfirm) {
-      alert("Las contraseñas no coinciden");
+      NotificationManager.warning("Las contraseñas no coinciden", 'Hubo un problema', 5000);
       return;
     }
     await registro(email, password);

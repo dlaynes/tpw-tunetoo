@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { NotificationManager } from "react-notifications";
+
 import { ModalWrapper } from '../../ModalWrapper';
 import { GALERIA, TIPO_CAPA } from '../../../state/utils/constantes';
 import { Categoria } from './Categoria';
@@ -24,7 +26,8 @@ export const ModalGaleria = (props) => {
 
   const agregar = () => {
     if(!fotoSeleccionada) {
-      alert("Seleccione una foto de la galería");
+      NotificationManager.warning('Seleccione una foto de la galería', 'Hubo un problema', 5000);
+      return;
     }
 
     agregarCapa(crearCapa({

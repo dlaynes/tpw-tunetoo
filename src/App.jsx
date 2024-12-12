@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router";
+import { NotificationContainer } from "react-notifications";
+
 import { Index } from "./paginas/Index";
 import { Crear } from "./paginas/Crear";
 import { Equipo } from "./paginas/Equipo";
@@ -40,6 +42,7 @@ function App() {
                 <Route path="/equipo" element={<Equipo />} />
                 <Route path="/nosotros" element={<Nosotros />} />
               </Routes>
+              <NotificationContainer />
             </Body>
           </EditarPoloProvider>
         </PolosProvider>

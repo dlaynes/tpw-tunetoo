@@ -37,6 +37,7 @@ export const AutenticacionProvider = ({ children }) => {
         password
       );
       // Cuenta creada
+      // El usuario lo actualizamos de forma centralizada desde onAuthStateChanged
       // const user = userCredential.user;
       // cambiarUsuario(user);
       cambiarError(null);
@@ -53,6 +54,7 @@ export const AutenticacionProvider = ({ children }) => {
         password
       );
       // Inicio de sesión aprobado
+      // El usuario lo actualizamos de forma centralizada desde onAuthStateChanged
       // const user = userCredential.user;
       // cambiarUsuario(user);
       cambiarError(null);
