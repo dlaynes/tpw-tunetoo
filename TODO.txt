@@ -1,3 +1,4 @@
+- Deseleccionar la capa actual, haciendo clic fuera del elemento
 - Investigar que mejoras ofrece reemplazar la librería DND-Kit por react-dnd
 - Usar React Query Firebase dentro del contexto de autenticación
 - Asignarle títulos a las capas
