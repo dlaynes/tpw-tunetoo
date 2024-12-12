@@ -15,12 +15,13 @@ import { AutenticacionProvider } from "./state/autenticacion/AutenticacionProvid
 import { Disenos } from "./paginas/Disenos";
 
 /**
- * El componente App sirve para navegar entre las páginas del proyecto
+ * El componente App sirve para navegar entre las páginas del proyecto.
  * Para el efecto, se definen rutas de navegación, y cada ruta se asocia a un componente respectivo.
- * Asimismo, se encarga de poner a disposición las variables y funciones globales disponibles en los proveedores de contexto (Providers)
+ * Asimismo, se encarga de poner a disposición las variables y funciones
+ * globales de estado mediante los proveedores de contexto (Providers)
  *
  * Nota: El tipo de navegación usado implica que se necesita un servidor web
- * configurado para que se redirijan a la ruta base del proyecto las peticiones.
+ * configurado para que se redirijan a la ruta base del proyecto las peticiones http.
  * Revisar la documentación de HashRouter para una alternativa:
  * https://www.geeksforgeeks.org/hashrouter-in-react-router/
  *

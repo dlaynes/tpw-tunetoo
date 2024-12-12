@@ -267,6 +267,30 @@ header {
   line-height: 1.6;
   margin-bottom: 15px;
   color: #555;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nosotros .n2 {
+  flex-direction: row-reverse;
+}
+
+.nosotros img {
+  width: 120px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.nosotros .n1 img {
+  margin-left: 2rem;
+}
+
+.nosotros .n2 img {
+  margin-right: 2rem;
 }
 
 /* Animation */
