@@ -57,6 +57,10 @@ header .menu li a span {
   color: #090000; /* Color del subtítulo del menú */
 }
 
+header .sesion-activa {
+  font-size: 85%;
+}
+
 header .acciones {
   display: flex;
   align-items: center;

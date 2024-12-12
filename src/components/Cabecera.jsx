@@ -97,7 +97,7 @@ export const Cabecera = (props) => {
         </ul>
         <div className="acciones">
           {!!usuario && (
-            <div className="sesion">
+            <div className="sesion sesion-activa">
               Bienvenido de vuelta!
               <br />
               <strong>{usuario.email}</strong>
