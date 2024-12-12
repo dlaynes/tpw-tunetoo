@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { NotificationManager } from "react-notifications";
 
 import { EditarPoloContext } from "./EditarPoloContext";
 
@@ -38,7 +37,7 @@ export const EditarPoloProvider = ({ children }) => {
   const agregarCapa = (capa) => {
     cambiarCapas((capasPrev) => {
       if(capasPrev.length >= LIMITE_CAPAS){
-        NotificationManager.warning("Se han alcanzado el límite de capas", 'Hubo un problema', 5000);
+        alert("Se han alcanzado el límite de capas", 'Hubo un problema', 5000);
         return capasPrev;
       }
       return [...capasPrev, capa]

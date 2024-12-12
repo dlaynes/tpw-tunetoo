@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactImagePickerEditor from 'react-image-picker-editor';
-import { NotificationManager } from 'react-notifications';
+import { toast } from 'react-toastify';
 import 'react-image-picker-editor/dist/index.css'
 
 import { TIPO_CAPA } from '../../../state/utils/constantes';
@@ -39,7 +39,7 @@ export const ModalMisFotos = (props) => {
 
   const agregar = () => {
     if(!image) {
-      NotificationManager.warning("Seleccione una foto", 'Hubo un problema', 5000);
+      toast.warn("Seleccione una foto");
       return;
     }
     agregarCapa(crearCapa({

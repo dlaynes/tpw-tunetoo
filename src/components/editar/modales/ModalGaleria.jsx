@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { NotificationManager } from "react-notifications";
+import { toast } from 'react-toastify';
 
 import { ModalWrapper } from '../../ModalWrapper';
 import { GALERIA, TIPO_CAPA } from '../../../state/utils/constantes';
@@ -26,7 +26,7 @@ export const ModalGaleria = (props) => {
 
   const agregar = () => {
     if(!fotoSeleccionada) {
-      NotificationManager.warning('Seleccione una foto de la galería', 'Hubo un problema', 5000);
+      toast.warn('Seleccione una foto de la galería');
       return;
     }
 

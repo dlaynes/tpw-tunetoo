@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
-import { NotificationManager } from "react-notifications";
+import { toast } from "react-toastify";
 import { AutenticacionContext } from "../../../state/autenticacion/AutenticacionContext";
 
 export const Login = ({ formRegistro }) => {
@@ -10,7 +10,7 @@ export const Login = ({ formRegistro }) => {
 
   const submit = async () => {
     if (!email || !password) {
-      NotificationManager.warning("Ingrese un correo y una contraseña", 'Hubo un problema', 5000);
+      toast.warn("Ingrese un correo y una contraseña");
       return;
     }
     await ingresar(email, password);

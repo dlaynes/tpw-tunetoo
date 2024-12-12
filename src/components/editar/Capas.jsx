@@ -1,7 +1,7 @@
 import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
-import { NotificationManager } from "react-notifications";
 
 import { exportComponentAsPNG } from "react-component-export-image";
 
@@ -32,11 +32,7 @@ export const Capas = () => {
 
   const guardar = async () => {
     if (polos.length >= LIMITE_POLOS) {
-      NotificationManager.warning(
-        `Has llegado al límite de polos (${LIMITE_POLOS}), no es posible crear uno nuevo`,
-        "Hubo un problema",
-        5000
-      );
+      toast.warn(`Has llegado al límite de polos (${LIMITE_POLOS}), no es posible crear uno nuevo`);
       return;
     }
     let poloActual = {
@@ -53,15 +49,11 @@ export const Capas = () => {
       storeData("polos", copiarYRenovarPoloInicial(polos, poloActual));
       actualizarPolo(poloActual);
       await navigate("/editar/" + poloActual.id);
-      NotificationManager.success("¡El polo ha sido creado!", "Éxito", 5000);
+      toast.success("¡El polo ha sido creado!");
     } else {
       actualizarPolo(poloActual);
       storeData("polos", [...excluirElemento(polos, poloActual), poloActual]);
-      NotificationManager.success(
-        "¡El polo ha sido actualizado!",
-        "Éxito",
-        5000
-      );
+      toast.success("¡El polo ha sido actualizado!");
     }
   };
 

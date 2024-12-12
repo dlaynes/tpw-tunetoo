@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import { NotificationContainer } from "react-notifications";
+import { ToastContainer } from 'react-toastify';
 
 import { Index } from "./paginas/Index";
 import { Crear } from "./paginas/Crear";
@@ -42,7 +42,7 @@ function App() {
                 <Route path="/equipo" element={<Equipo />} />
                 <Route path="/nosotros" element={<Nosotros />} />
               </Routes>
-              <NotificationContainer />
+              <ToastContainer />
             </Body>
           </EditarPoloProvider>
         </PolosProvider>
