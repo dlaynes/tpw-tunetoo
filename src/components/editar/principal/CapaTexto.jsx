@@ -9,9 +9,8 @@ import { colorFondo } from "../../../state/utils/funciones";
  * @returns
  */
 
-export const CapaTexto = ({ capa, seleccionada, imprimiendo, disenador }) => {
+export const CapaTexto = ({ capa, seleccionada, imprimiendo, factor }) => {
   const bgColor = colorFondo(capa.backgroundColor, seleccionada, imprimiendo);
-  const factor = disenador ? 1 : 4;
 
   return (
     <div
@@ -59,5 +58,5 @@ CapaTexto.propTypes = {
   }),
   seleccionada: PropTypes.bool,
   imprimiendo: PropTypes.bool,
-  disenador: PropTypes.bool
+  factor: PropTypes.number
 };

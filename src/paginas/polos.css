@@ -231,6 +231,16 @@
   position: relative;
 }
 .diseno-single {
-  width: 220px;
+  margin: 0 10px;
+  width: 190px;
   text-align: center;
+  background-color: rgba(125,125,125,0.1);
+  padding: 18px 0;
+  border-radius: 18px;
+}
+
+.diseno-single strong, .diseno-single .fecha, .diseno-single a {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
 }

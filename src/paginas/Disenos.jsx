@@ -33,8 +33,8 @@ export const Disenos = () => {
             ))}
             </div>
           </div>
-          <p>{it.titulo || 'Sin título'}</p>
-          <p><span title="Última actualización">{(new Date(it.ultimaActualizacion)).toLocaleString()}</span></p>
+          <strong className="nombre">{it.titulo || 'Sin título'}</strong>
+          <span className="fecha" title="Última actualización">{(new Date(it.ultimaActualizacion)).toLocaleString()}</span>
           <Link to={"/editar/"+it.id}>Editar</Link>
         </div>)}
       </div>}

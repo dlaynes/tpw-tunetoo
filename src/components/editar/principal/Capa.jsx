@@ -56,6 +56,7 @@ export const Capa = ({ capa, pos, seleccionada = false, imprimiendo=false, disen
   // Ordenamos de manera inversa al orden existente en el listado lateral de capas.
   // Agregamos un bonus si la capa se encuentra seleccionada
   const nivel = (LIMITE_CAPAS - pos) + (seleccionada ? NIVEL_SELECCIONADO : 0);
+  const factor = disenador ? 1 : 4;
 
   return (
     <div
@@ -65,10 +66,10 @@ export const Capa = ({ capa, pos, seleccionada = false, imprimiendo=false, disen
       key={"capa-" + capa.id + "-" + nivel}
     >
       {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && (
-        <CapaImagen disenador={disenador} capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
+        <CapaImagen factor={factor} capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
       )}
       {capa.tipo === TIPO_CAPA.texto && (
-        <CapaTexto disenador={disenador} capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
+        <CapaTexto factor={factor} capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
       )}
       {/* El componente ResizableBox realiza las operaciones de arrastre, rotación y variación de tamaño.
       Debido a que no permite tener contenido anidado, entonces replicamos sus reglas CSS en la capa actual ante cualquier cambio.

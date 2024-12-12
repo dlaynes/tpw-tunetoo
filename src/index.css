@@ -234,15 +234,15 @@ footer {
 }
 
 /* Estilos Existentes */
-
 header {
   background: url('/images/header.png') no-repeat center 64px; /* Imagen de fondo del encabezado */
   background-size: contain; /* Ajusta la imagen de fondo para que se contenga dentro del contenedor */
-  height: 500px; /* Altura del encabezado */
+  height: 420px; /* Altura del encabezado */
   position: relative;
   margin-top: 20px; /* Margen superior del encabezado */
   z-index: 1; /* Nivel de apilamiento del encabezado */
 }
+
 /* Nosotros Section Styles */
 .nosotros {
   background-color: #fff;
