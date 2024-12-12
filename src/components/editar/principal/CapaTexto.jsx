@@ -28,7 +28,7 @@ export const CapaTexto = ({ capa, seleccionada, imprimiendo, factor }) => {
       <span
         style={{
           color: capa.color,
-          fontSize: capa.fontSize + "px",
+          fontSize: (capa.fontSize/factor) + "px",
           fontFamily: capa.fontFamily,
         }}
       >
