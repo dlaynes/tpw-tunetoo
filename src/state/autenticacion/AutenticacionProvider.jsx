@@ -15,9 +15,13 @@ import { AutenticacionContext } from "./AutenticacionContext";
  * Implementación de las variables globales concernientes al estado de autenticación de un usuario
  */
 export const AutenticacionProvider = ({ children }) => {
+  // Objeto Usuario proveniente del API de Firebase
   const [usuario, cambiarUsuario] = useState(null);
+  // Último error, proveniente del API de Firebase
   const [error, cambiarError] = useState(null);
 
+  // Esta función actualiza automáticamente la variable usuario, cuando se produzca un cambio
+  // en el estado de la sesión de Firebase
   useEffect(() => {
     return onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -29,6 +33,7 @@ export const AutenticacionProvider = ({ children }) => {
     });
   }, []);
 
+  // Crear una cuenta nueva asociada a la aplicación
   const registro = async (email, password) => {
     try {
       await createUserWithEmailAndPassword(
@@ -46,6 +51,7 @@ export const AutenticacionProvider = ({ children }) => {
     }
   };
 
+  // Realizar login con una cuenta asociada a la aplicación
   const ingresar = async (email, password) => {
     try {
       await signInWithEmailAndPassword(
@@ -63,6 +69,7 @@ export const AutenticacionProvider = ({ children }) => {
     }
   };
 
+  // Cerrar la sesión de Firebase
   const salir = () => {
     signOut(auth).then(()=>{
       cambiarError(null);

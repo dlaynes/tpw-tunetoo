@@ -29,10 +29,15 @@ export const Polos = () => {
    * La página de edición de polos es dibujada cuando se acceden a dos rutas:
    * /editar/
    * /editar/:poloId
-   * Donde poloId corresponde al id de un polo
-   * Cuando haya algún cambio en la ruta, entonces cargaremos el polo del usuario
+   * Donde :poloId corresponde al id de un polo
+   * Apenas haya algún cambio en la ruta, entonces cargaremos el polo del usuario
    * si este existe, o un polo predefinido.
    * Si el id es inválido, redigimos a la página de Editar nuevo polo
+   *
+   * No estoy seguro si se podría presentar un problema con la redirección, al ir agregando rutas
+   * más complejas al sistema. En caso fuera necesario detectar la url, se puede realizar
+   * mediante el hook useLocation()
+   *
    */
   useEffect(() => {
     const id = params.poloId || ID_POLO_NUEVO;

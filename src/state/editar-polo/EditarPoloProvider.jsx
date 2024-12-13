@@ -20,13 +20,13 @@ export const EditarPoloProvider = ({ children }) => {
   // Booleano usado para esconder los controles de la página mientras se genera la imagen exportada.
   const [imprimiendo, cambiarImprimiendo] = useState(false);
 
-  // Capas del diseño del polo actual. Incluímos una capa de imagen de ejemplo.
+  // Capas del diseño del polo actual.
   const [capas, cambiarCapas] = useState([]);
 
   // Capa seleccionada
   const [capaActual, seleccionarCapa] = useState(null);
 
-  // Detección del polo Actual
+  // Detección del polo Actual. Cuando cambie el polo seleccionado, asignamos sus capas.
   useEffect(() => {
     if(poloSeleccionado?.capas){
       cambiarCapas(poloSeleccionado.capas);
@@ -36,7 +36,7 @@ export const EditarPoloProvider = ({ children }) => {
   const agregarCapa = (capa) => {
     cambiarCapas((capasPrev) => {
       if(capasPrev.length >= LIMITE_CAPAS){
-        // TO DO: Quitar la alerta del contexto, para poder usar la librería toast.
+        // TO DO: Quitar la alerta del contexto, para poder usar la librería react-toastify.
         alert("Se han alcanzado el límite de capas", 'Hubo un problema', 5000);
         return capasPrev;
       }
