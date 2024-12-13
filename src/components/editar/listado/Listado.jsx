@@ -42,7 +42,7 @@ export const Listado = () => {
   const handleDragEnd = (event) => {
     const { active, over } = event;
 
-    if (active.id !== over?.id) {
+    if (over?.id && active.id !== over.id) {
       cambiarCapas((items) => {
         const oldIndex = items.findIndex((it) => it.id === active.id);
         const newIndex = items.findIndex((it) => it.id === over.id);
