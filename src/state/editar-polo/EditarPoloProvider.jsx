@@ -15,7 +15,6 @@ import { PolosContext } from "../polos/PolosContext";
 
 export const EditarPoloProvider = ({ children }) => {
   // Polo sobre el cual se van a modificar las capas
-  const [polo, cambiarPolo] = useState(null);
   const { poloSeleccionado } = useContext(PolosContext);
 
   // Booleano usado para esconder los controles de la página mientras se genera la imagen exportada.
@@ -62,11 +61,9 @@ export const EditarPoloProvider = ({ children }) => {
   return (
     <EditarPoloContext.Provider
       value={{
-        polo,
         imprimiendo,
         capas,
         capaActual,
-        cambiarPolo,
         seleccionarCapa,
         cambiarCapas,
         agregarCapa,
