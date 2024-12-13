@@ -3,7 +3,6 @@ import { useContext, useState } from "react";
 import { AutenticacionContext } from "../../../state/autenticacion/AutenticacionContext";
 import { toast } from "react-toastify";
 
-
 export const Registro = ({ formLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,10 +52,7 @@ export const Registro = ({ formLogin }) => {
           value={passwordConfirm}
           onChange={(e) => setPasswordConfirm(e.target.value)}
         />
-        <button
-          type="button"
-          onClick={submit}
-        >
+        <button type="button" onClick={submit}>
           Registrarme
         </button>
       </form>

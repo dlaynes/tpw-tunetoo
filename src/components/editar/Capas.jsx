@@ -32,7 +32,9 @@ export const Capas = () => {
 
   const guardar = async () => {
     if (polos.length >= LIMITE_POLOS) {
-      toast.warn(`Has llegado al límite de polos (${LIMITE_POLOS}), no es posible crear uno nuevo`);
+      toast.warn(
+        `Has llegado al límite de polos (${LIMITE_POLOS}), no es posible crear uno nuevo`
+      );
       return;
     }
     let poloActual = {

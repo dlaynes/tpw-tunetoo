@@ -33,5 +33,5 @@ export const Index = () => {
         </div>
       </div>
     </section>
-  )
+  );
 };

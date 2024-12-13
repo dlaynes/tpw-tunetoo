@@ -2,7 +2,11 @@ import PropTypes from "prop-types";
 import { ResizableBox } from "@dantecoder/react-resizablebox";
 import { useContext } from "react";
 import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext";
-import { NIVEL_SELECCIONADO, TIPO_CAPA, LIMITE_CAPAS } from "../../../state/utils/constantes";
+import {
+  NIVEL_SELECCIONADO,
+  TIPO_CAPA,
+  LIMITE_CAPAS,
+} from "../../../state/utils/constantes";
 import { CapaImagen } from "./CapaImagen";
 import { CapaTexto } from "./CapaTexto";
 
@@ -22,7 +26,13 @@ import { CapaTexto } from "./CapaTexto";
  * @returns
  */
 
-export const Capa = ({ capa, pos, seleccionada = false, imprimiendo=false, disenador=true }) => {
+export const Capa = ({
+  capa,
+  pos,
+  seleccionada = false,
+  imprimiendo = false,
+  disenador = true,
+}) => {
   const { actualizarCapa, seleccionarCapa } = useContext(EditarPoloContext);
 
   // Escuchamos el evento Drag (arrastre) del ResizableBox
@@ -55,41 +65,56 @@ export const Capa = ({ capa, pos, seleccionada = false, imprimiendo=false, disen
 
   // Ordenamos de manera inversa al orden existente en el listado lateral de capas.
   // Agregamos un bonus si la capa se encuentra seleccionada
-  const nivel = (LIMITE_CAPAS - pos) + (seleccionada ? NIVEL_SELECCIONADO : 0);
+  const nivel = LIMITE_CAPAS - pos + (seleccionada ? NIVEL_SELECCIONADO : 0);
   const factor = disenador ? 1 : 4;
 
   return (
     <div
       className={seleccionada ? "capa-actual" : ""}
       onClick={() => disenador && seleccionarCapa(capa)}
-      style={{ zIndex: nivel, position: 'relative' }}
+      style={{ zIndex: nivel, position: "relative" }}
       key={"capa-" + capa.id + "-" + nivel}
     >
       {(capa.tipo === TIPO_CAPA.galeria || capa.tipo === TIPO_CAPA.imagen) && (
-        <CapaImagen factor={factor} capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
+        <CapaImagen
+          factor={factor}
+          capa={capa}
+          seleccionada={seleccionada}
+          imprimiendo={imprimiendo}
+        />
       )}
       {capa.tipo === TIPO_CAPA.texto && (
-        <CapaTexto factor={factor} capa={capa} seleccionada={seleccionada} imprimiendo={imprimiendo} />
+        <CapaTexto
+          factor={factor}
+          capa={capa}
+          seleccionada={seleccionada}
+          imprimiendo={imprimiendo}
+        />
       )}
       {/* El componente ResizableBox realiza las operaciones de arrastre, rotación y variación de tamaño.
       Debido a que no permite tener contenido anidado, entonces replicamos sus reglas CSS en la capa actual ante cualquier cambio.
        */}
-      {disenador && <ResizableBox
-        style={{zIndex: nivel, visibility: seleccionada ? "visible" : "hidden"}}
-        className="capa"
-        width={capa.width}
-        height={capa.height}
-        left={capa.left}
-        top={capa.top}
-        rotationDeg={capa.rotationDeg}
-        rotatable={seleccionada}
-        onRotate={onRotateHandler}
-        draggable={true}
-        onClick={() => seleccionarCapa(capa)}
-        onDrag={onDragHandler}
-        resizable={seleccionada}
-        onResize={onResizeHandler}
-      />}
+      {disenador && (
+        <ResizableBox
+          style={{
+            zIndex: nivel,
+            visibility: seleccionada ? "visible" : "hidden",
+          }}
+          className="capa"
+          width={capa.width}
+          height={capa.height}
+          left={capa.left}
+          top={capa.top}
+          rotationDeg={capa.rotationDeg}
+          rotatable={seleccionada}
+          onRotate={onRotateHandler}
+          draggable={true}
+          onClick={() => seleccionarCapa(capa)}
+          onDrag={onDragHandler}
+          resizable={seleccionada}
+          onResize={onResizeHandler}
+        />
+      )}
     </div>
   );
 };
@@ -113,5 +138,5 @@ Capa.propTypes = {
   pos: PropTypes.number,
   seleccionada: PropTypes.bool,
   imprimiendo: PropTypes.bool,
-  disenador: PropTypes.bool
+  disenador: PropTypes.bool,
 };

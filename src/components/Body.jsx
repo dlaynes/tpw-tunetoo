@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Cabecera } from './Cabecera';
-import { ModalLogin } from './modales/ModalLogin';
-import { PiePagina } from './PiePagina';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import { Cabecera } from "./Cabecera";
+import { ModalLogin } from "./modales/ModalLogin";
+import { PiePagina } from "./PiePagina";
 
 /**
  * El componente Body sirve para indicar una sola vez la declaración de los elementos comunes a todas las páginas
@@ -19,22 +19,18 @@ import { PiePagina } from './PiePagina';
  * @returns
  */
 export const Body = (props) => {
-
   const [modalLogin, setModalLogin] = useState(false);
 
   return (
     <>
       <Cabecera cambiarModal={setModalLogin} />
-      <main>
-        {props.children}
-      </main>
+      <main>{props.children}</main>
       <PiePagina />
       <ModalLogin visible={modalLogin} cambiarModal={setModalLogin} />
     </>
   );
-
 };
 
 Body.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };

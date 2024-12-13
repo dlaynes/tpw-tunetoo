@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 /**
  * El componente Accion representa a uno de los botones que se usan para agregar capas al diseño.
@@ -12,19 +12,19 @@ import PropTypes from 'prop-types';
  * @returns
  */
 
-export const Accion = ({src, onClick, legend}) => {
-    return (
-        <div className="accion">
-            <button onClick={onClick}>
-                {!!src && <img src={src} alt={legend} />}
-            </button>
-            <span>{legend}</span>
-        </div>
-    )
-}
+export const Accion = ({ src, onClick, legend }) => {
+  return (
+    <div className="accion">
+      <button onClick={onClick}>
+        {!!src && <img src={src} alt={legend} />}
+      </button>
+      <span>{legend}</span>
+    </div>
+  );
+};
 
 Accion.propTypes = {
-    src: PropTypes.string,
-    onClick: PropTypes.func,
-    legend: PropTypes.string
+  src: PropTypes.string,
+  onClick: PropTypes.func,
+  legend: PropTypes.string,
 };

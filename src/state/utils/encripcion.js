@@ -1,9 +1,9 @@
 import CryptoJS from "crypto-js";
 
-// Un "salt" se usa para que cada proceso de encriptación sea diferente, entre miles de millones.
+// Un "salt" se usa para que cada proceso de encriptación sea diferente, entre miles de millones
 // de posibilidades. Eso evitaría que alguien pueda desencriptar los datos. Sin embargo,
-// ya que estamos trabajando de lado del navegador web, cualquiera puede leer el salt resultante y esta
-// técnica de esconder el salt mediante import.meta.env o similar solo tiene eficacia en aplicaciones de servidor.
+// ya que estamos trabajando de lado del navegador web, cualquiera puede leer el salt existente y esta
+// técnica de esconder nuestro salt mediante import.meta.env o similar solo tiene eficacia en aplicaciones de servidor.
 
 // Ver: sessionStorage
 

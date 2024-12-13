@@ -37,6 +37,7 @@ export const EditarPoloProvider = ({ children }) => {
   const agregarCapa = (capa) => {
     cambiarCapas((capasPrev) => {
       if(capasPrev.length >= LIMITE_CAPAS){
+        // TO DO: Quitar la alerta del contexto, para poder usar la librería toast.
         alert("Se han alcanzado el límite de capas", 'Hubo un problema', 5000);
         return capasPrev;
       }

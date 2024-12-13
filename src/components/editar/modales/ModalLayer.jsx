@@ -16,7 +16,9 @@ import { EditarPoloContext } from "../../../state/editar-polo/EditarPoloContext"
  * @returns
  */
 export const ModalLayer = (props) => {
-  const [capa, setCapa] = useState(() => Object.assign({}, CAPA_BASE, {tipo: TIPO_CAPA.texto}));
+  const [capa, setCapa] = useState(() =>
+    Object.assign({}, CAPA_BASE, { tipo: TIPO_CAPA.texto })
+  );
   const [transparente, setTransparente] = useState(false);
   const { agregarCapa, capas } = useContext(EditarPoloContext);
 
@@ -28,7 +30,10 @@ export const ModalLayer = (props) => {
   };
 
   const agregar = () => {
-    const c = {...capa, backgroundColor: transparente ? "transparent" : capa.backgroundColor};
+    const c = {
+      ...capa,
+      backgroundColor: transparente ? "transparent" : capa.backgroundColor,
+    };
     agregarCapa(c, capas.length);
     props.cambiarModal(false);
   };
@@ -41,13 +46,17 @@ export const ModalLayer = (props) => {
         <br />
         <div className="form-layer">
           <div className="form-preview">
-            <div style={{
-              textAlign: capa.textAlign,
-              fontSize: capa.fontSize+"px",
-              color: capa.color,
-              backgroundColor: transparente ? "transparent" : capa.backgroundColor,
-              fontFamily: capa.fontFamily
-            }}>
+            <div
+              style={{
+                textAlign: capa.textAlign,
+                fontSize: capa.fontSize + "px",
+                color: capa.color,
+                backgroundColor: transparente
+                  ? "transparent"
+                  : capa.backgroundColor,
+                fontFamily: capa.fontFamily,
+              }}
+            >
               {capa.texto}
             </div>
           </div>
@@ -92,7 +101,7 @@ export const ModalLayer = (props) => {
               <input
                 type="checkbox"
                 checked={transparente}
-                onChange={() => setTransparente(tr => !tr)}
+                onChange={() => setTransparente((tr) => !tr)}
               />{" "}
               Usar fondo transparente
             </div>
@@ -134,7 +143,15 @@ export const ModalLayer = (props) => {
                   setProperty("fontFamily", event.target.value)
                 }
               >
-                {FUENTES.map( f => <option key={"fuente-"+f} value={f} style={{fontFamily: f}}>{f}</option>)}
+                {FUENTES.map((f) => (
+                  <option
+                    key={"fuente-" + f}
+                    value={f}
+                    style={{ fontFamily: f }}
+                  >
+                    {f}
+                  </option>
+                ))}
               </select>
             </p>
           </div>

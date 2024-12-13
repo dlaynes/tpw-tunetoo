@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-import { ModalWrapper } from '../ModalWrapper';
-import { Login } from './Auth/Login';
-import { Registro } from './Auth/Registro';
-import { AutenticacionContext } from '../../state/autenticacion/AutenticacionContext';
+import { ModalWrapper } from "../ModalWrapper";
+import { Login } from "./Auth/Login";
+import { Registro } from "./Auth/Registro";
+import { AutenticacionContext } from "../../state/autenticacion/AutenticacionContext";
 
 /**
  * El componente ModalLogin muestra el formulario de inicio de sesión
@@ -20,23 +20,27 @@ export const ModalLogin = (props) => {
   const [isLogin, setIsLogin] = useState(true);
   const { usuario, error } = useContext(AutenticacionContext);
 
-  useEffect(()=>{
+  useEffect(() => {
     // En caso se logre iniciar sesión a traves de alguno de los formularios, cerramos el modal
-    if(usuario){
+    if (usuario) {
       props.cambiarModal(false);
     }
   }, [usuario, props]);
 
   return (
     <ModalWrapper {...props}>
-      {error && <div style={{color: "red"}}>{error.message || "Hubo un problema al enviar los datos"}</div>}
+      {error && (
+        <div style={{ color: "red" }}>
+          {error.message || "Hubo un problema al enviar los datos"}
+        </div>
+      )}
       {isLogin && <Login formRegistro={() => setIsLogin(false)} />}
       {!isLogin && <Registro formLogin={() => setIsLogin(true)} />}
     </ModalWrapper>
-  )
+  );
 };
 
 ModalLogin.propTypes = {
   visible: PropTypes.bool,
-  cambiarModal: PropTypes.func
-}
+  cambiarModal: PropTypes.func,
+};

@@ -16,7 +16,13 @@ export const Categoria = ({ categoria, pos, seleccionar }) => {
       <div className="imagenes">
         {categoria.fotos?.map((foto, i) => (
           <div key={"foto-" + pos + "-" + i} className="foto">
-            <img src={"/images/disenador/gallery/"+categoria.carpeta+"/"+foto} alt={"Foto " + pos + " " + i} onClick={() => seleccionar(categoria.carpeta+"/"+foto)} />
+            <img
+              src={
+                "/images/disenador/gallery/" + categoria.carpeta + "/" + foto
+              }
+              alt={"Foto " + pos + " " + i}
+              onClick={() => seleccionar(categoria.carpeta + "/" + foto)}
+            />
           </div>
         ))}
       </div>

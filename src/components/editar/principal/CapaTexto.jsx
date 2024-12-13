@@ -16,10 +16,10 @@ export const CapaTexto = ({ capa, seleccionada, imprimiendo, factor }) => {
     <div
       className="shadow"
       style={{
-        left: capa.left/factor,
-        top: capa.top/factor,
-        width: capa.width/factor,
-        height: capa.height/factor,
+        left: capa.left / factor,
+        top: capa.top / factor,
+        width: capa.width / factor,
+        height: capa.height / factor,
         transform: "rotate(" + capa.rotationDeg + "deg)",
         backgroundColor: bgColor,
         textAlign: capa.textAlign,
@@ -28,7 +28,7 @@ export const CapaTexto = ({ capa, seleccionada, imprimiendo, factor }) => {
       <span
         style={{
           color: capa.color,
-          fontSize: (capa.fontSize/factor) + "px",
+          fontSize: capa.fontSize / factor + "px",
           fontFamily: capa.fontFamily,
         }}
       >
@@ -58,5 +58,5 @@ CapaTexto.propTypes = {
   }),
   seleccionada: PropTypes.bool,
   imprimiendo: PropTypes.bool,
-  factor: PropTypes.number
+  factor: PropTypes.number,
 };

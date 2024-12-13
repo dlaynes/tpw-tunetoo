@@ -11,26 +11,40 @@ export const Crear = () => {
         <div className="producto">
           <img src="images/polos.avif" alt="Camiseta personalizada" />
           <h3>Camisetas Personalizadas</h3>
-          <p>Personaliza tus camisetas con diseños únicos, nombres, frases inspiradoras o logotipos de tu empresa.</p>
+          <p>
+            Personaliza tus camisetas con diseños únicos, nombres, frases
+            inspiradoras o logotipos de tu empresa.
+          </p>
         </div>
         <div className="producto">
           <img src="images/gorra.avif" alt="Gorra personalizada" />
           <h3>Gorras Personalizadas</h3>
-          <p>Crea gorras personalizadas con tus colores favoritos, iniciales, o el escudo de tu equipo deportivo.</p>
+          <p>
+            Crea gorras personalizadas con tus colores favoritos, iniciales, o
+            el escudo de tu equipo deportivo.
+          </p>
         </div>
         <div className="producto">
           <img src="images/chullo.avif" alt="Chullo personalizado" />
           <h3>Chullos Personalizados</h3>
-          <p>Diseña chullos únicos con patrones tradicionales, nombres o mensajes especiales para mantenerte abrigado con estilo.</p>
+          <p>
+            Diseña chullos únicos con patrones tradicionales, nombres o mensajes
+            especiales para mantenerte abrigado con estilo.
+          </p>
         </div>
         <div className="producto">
           <img src="images/baby.avif" alt="Body para bebé personalizado" />
           <h3>Bodys Personalizados</h3>
-          <p>Personaliza bodys para bebé con nombres, fechas de nacimiento, o divertidos diseños que harán sonreír a todos.</p>
+          <p>
+            Personaliza bodys para bebé con nombres, fechas de nacimiento, o
+            divertidos diseños que harán sonreír a todos.
+          </p>
         </div>
       </div>
       <br />
-      <Link to='/editar' className="action-button" viewTransition>Crear mi propio diseño</Link>
+      <Link to="/editar" className="action-button" viewTransition>
+        Crear mi propio diseño
+      </Link>
     </section>
-  )
+  );
 };

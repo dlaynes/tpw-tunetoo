@@ -16,10 +16,10 @@ export const CapaImagen = ({ capa, seleccionada, imprimiendo, factor }) => {
     <div
       className="shadow shadow-image"
       style={{
-        left: capa.left/factor,
-        top: capa.top/factor,
-        width: capa.width/factor,
-        height: capa.height/factor,
+        left: capa.left / factor,
+        top: capa.top / factor,
+        width: capa.width / factor,
+        height: capa.height / factor,
         transform: "rotate(" + capa.rotationDeg + "deg)",
         backgroundColor: bgColor,
       }}

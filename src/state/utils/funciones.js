@@ -69,7 +69,7 @@ export const excluirElemento = (arrPrev, item) => {
   return arrPrev.filter((it) => it.id !== item.id);
 };
 // Notas:
-// Se usa una de las definiciones de objetos de Typescript: Array<Record<string, any>> para ser más riguroso con la definición de la función.
+// Se usa una de las definiciones de objetos de Typescript: Record<string, any> para ser más riguroso con la definición de la función.
 // En un proyecto Javascript no es necesario, y basta con "Array" para definir el tipo del parámetro en la documentación de la función.
 // En un proyecto Typescript, normalmente se utilizaría el tipo (o clase) del objeto, en vez de Record<string, any>
 

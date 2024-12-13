@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 /**
  * El componente ModalWrapper muestra la parte que envuelve a un modal (Popup)
@@ -12,24 +12,28 @@ import PropTypes from 'prop-types';
  * @returns
  */
 export const ModalWrapper = (props) => {
-
   const cerrar = () => {
     props.cambiarModal(false);
   };
 
   return (
-    <div className="modal" style={{display: props.visible ? "block" : "none"}}>
+    <div
+      className="modal"
+      style={{ display: props.visible ? "block" : "none" }}
+    >
       <div className="modal-content" style={props.modalContentStyle}>
-        <span className="close" onClick={cerrar}>&times;</span>
+        <span className="close" onClick={cerrar}>
+          &times;
+        </span>
         {props.children}
       </div>
     </div>
-  )
+  );
 };
 
 ModalWrapper.propTypes = {
   visible: PropTypes.bool,
   cambiarModal: PropTypes.func,
   children: PropTypes.node,
-  modalContentStyle: PropTypes.object
-}
+  modalContentStyle: PropTypes.object,
+};
