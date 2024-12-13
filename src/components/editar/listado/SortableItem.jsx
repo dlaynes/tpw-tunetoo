@@ -5,7 +5,7 @@ import { CSS } from "@dnd-kit/utilities";
 
 /**
  * El componente SortableItem representa una de las capas, dentro del listado de capas de la barra lateral
- * Contiene controles para editar el título de la capa, y para borrarla del listado.
+ * Contiene controles para editar la capa, y para borrarla del listado.
  * La librería DND nos ayuda a implementar el comportamiento de reordenar las capas
  * al arrastrarlas en el listado de capas (componente padre).
  *
